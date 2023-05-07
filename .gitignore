@@ -7,3 +7,6 @@ sim/work/*
 **.ini
 **nfs*
 **.mti
+**.prj
+**/rev*
+**tcl
