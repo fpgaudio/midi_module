@@ -2,7 +2,7 @@ sim/lib/*
 sim/work/*
 **.mpf
 **.log
-**.wlf
+**wlf*
 **transcript
 **.ini
 **nfs*
