@@ -1,4 +1,6 @@
-module midi_receiver(
+module midi_receiver#(
+    parameter CYCLES_PER_BIT = 1600
+) (
     input  logic clk,
     input  logic reset,
     input  logic din,
@@ -30,8 +32,8 @@ state_t state, state_c;
 logic shift_en, buffer_reset;
 logic [7:0] buffer_out;
 
-// cycle counter needs to get up to 3200 to get 31250 baud
-logic [11:0] cycle_count, cycle_count_c;
+// cycle counter needs to get up to 1600 to get 31250 baud
+logic [10:0] cycle_count, cycle_count_c;
 
 // bit counter
 logic [2:0] bit_count;
@@ -85,7 +87,7 @@ always_comb begin
         START: begin
             bit_count = '0;
             cycle_count_c = cycle_count + 1;
-            if (cycle_count == 1599) begin
+            if (cycle_count == ((CYCLES_PER_BIT / 2) - 1)) begin
                 cycle_count_c = '0;
                 state_c = DATA;
             end else begin
@@ -95,7 +97,7 @@ always_comb begin
 
         DATA: begin
             cycle_count_c = cycle_count + 1;
-            if (cycle_count == 3199) begin
+            if (cycle_count == CYCLES_PER_BIT - 1) begin
                 cycle_count_c = '0;
                 shift_en = 1'b1;
                 if (bit_count == 7) begin
@@ -123,7 +125,7 @@ always_comb begin
         WAIT: begin
             buffer_reset = 1'b1;
             cycle_count_c = cycle_count + 1;
-            if (cycle_count == 3199) begin
+            if (cycle_count == CYCLES_PER_BIT - 1) begin
                 state_c = IDLE;
             end else begin
                 state_c = WAIT;
