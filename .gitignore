@@ -1,1 +1,9 @@
-sim/*
+sim/lib/*
+sim/work/*
+**.mpf
+**.log
+**.wlf
+**transcript
+**.ini
+**nfs*
+**.mti
