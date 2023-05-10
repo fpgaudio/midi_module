@@ -4,10 +4,10 @@ vlib work
 vmap work work
 
 # grayscale architecture
-vlog -work work "../sv/fifo.sv"
-vlog -work work "../sv/midi_receiver.sv"
-vlog -work work "../sv/midi_top.sv"
-vlog -work work "../sv/shift_8.sv"
+vlog -work work "../source/fifo.sv"
+vlog -work work "../source/midi_receiver.sv"
+vlog -work work "../source/midi_top.sv"
+vlog -work work "../source/shift_8.sv"
 
 # uvm library
 vlog -work work +incdir+$env(UVM_HOME)/src $env(UVM_HOME)/src/uvm.sv
