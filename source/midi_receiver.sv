@@ -5,8 +5,8 @@ module midi_receiver#(
     input  logic reset,
     input  logic din,
     output logic [7:0] dout,
-    output logic valid,
-    input  logic fifo_full
+    output logic valid
+    // input  logic fifo_full
 );
 
 // MIDI receive state machine taking in a serial MIDI byte and outputting a parallel byte
@@ -36,7 +36,7 @@ logic [7:0] buffer_out;
 logic [10:0] cycle_count, cycle_count_c;
 
 // bit counter
-logic [2:0] bit_count;
+logic [2:0] bit_count, bit_count_c;
 
 // output register
 logic [7:0] dout_c;
@@ -59,24 +59,29 @@ always_ff @(posedge clk) begin
         cycle_count <= '0;
         dout <= '0;
         valid <= '0;
+        bit_count <= '0;
     end else begin
         state <= state_c;
         cycle_count <= cycle_count_c;
         dout <= dout_c;
         valid <= valid_c;
+        bit_count <= bit_count_c;
     end
 end
 
 always_comb begin
-    dout_c = '0;
-    valid_c = '0;
-    shift_en = 1'b0;
-    buffer_reset = 1'b0;
-
-    case (state)
+	dout_c = '0;
+	valid_c = '0;
+	shift_en = 1'b0;
+	buffer_reset = 1'b0;
+	state_c = state;
+	cycle_count_c = '0;
+	bit_count_c = bit_count;
+		
+	case (state)
         IDLE: begin
             cycle_count_c = '0;
-            bit_count = '0;
+            bit_count_c = '0;
             if (din == 0) begin
                 state_c = START;
             end else begin
@@ -85,8 +90,8 @@ always_comb begin
         end
 
         START: begin
-            bit_count = '0;
-            cycle_count_c = cycle_count + 1;
+            bit_count_c = '0;
+            cycle_count_c = cycle_count + 11'd1;
             if (cycle_count == ((CYCLES_PER_BIT / 2) - 1)) begin
                 cycle_count_c = '0;
                 state_c = DATA;
@@ -96,35 +101,37 @@ always_comb begin
         end
 
         DATA: begin
-            cycle_count_c = cycle_count + 1;
+            cycle_count_c = cycle_count + 11'd1;
             if (cycle_count == CYCLES_PER_BIT - 1) begin
                 cycle_count_c = '0;
                 shift_en = 1'b1;
-                if (bit_count == 7) begin
+                bit_count_c = (bit_count + 3'b1);
+                if (bit_count == 6) begin
                     state_c = STOP;
+                    bit_count_c = '0;
                 end else begin
                     state_c = DATA;
                 end
-                bit_count = (bit_count + 1) % 8;
+                
             end else begin
-                bit_count = bit_count;
+                bit_count_c = bit_count;
                 state_c = DATA;
             end
         end
 
         STOP: begin
-            if (fifo_full == 1'b0) begin
+            // if (fifo_full == 1'b0) begin
                 state_c = WAIT;
                 dout_c = buffer_out;
                 valid_c = '1;
-            end else begin
-                state_c = STOP;
-            end
+            // end else begin
+                // state_c = STOP;
+            // end
         end
 
         WAIT: begin
             buffer_reset = 1'b1;
-            cycle_count_c = cycle_count + 1;
+            cycle_count_c = cycle_count + 11'd1;
             if (cycle_count == CYCLES_PER_BIT - 1) begin
                 state_c = IDLE;
             end else begin
@@ -137,7 +144,7 @@ always_comb begin
             valid_c = '0;
             dout_c = '0;
             cycle_count_c = '0;
-            bit_count = '0;
+            bit_count_c = '0;
         end
     endcase
 end

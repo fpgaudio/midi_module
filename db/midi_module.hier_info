@@ -1,0 +1,154 @@
+|midi_top
+clk => clk.IN1
+reset => reset.IN1
+din => din.IN1
+segments_out_high[0] << led_dec:led_high.segments_out
+segments_out_high[1] << led_dec:led_high.segments_out
+segments_out_high[2] << led_dec:led_high.segments_out
+segments_out_high[3] << led_dec:led_high.segments_out
+segments_out_high[4] << led_dec:led_high.segments_out
+segments_out_high[5] << led_dec:led_high.segments_out
+segments_out_high[6] << led_dec:led_high.segments_out
+segments_out_low[0] << led_dec:led_low.segments_out
+segments_out_low[1] << led_dec:led_low.segments_out
+segments_out_low[2] << led_dec:led_low.segments_out
+segments_out_low[3] << led_dec:led_low.segments_out
+segments_out_low[4] << led_dec:led_low.segments_out
+segments_out_low[5] << led_dec:led_low.segments_out
+segments_out_low[6] << led_dec:led_low.segments_out
+
+
+|midi_top|midi_receiver:midi
+clk => clk.IN1
+reset => state.OUTPUTSELECT
+reset => state.OUTPUTSELECT
+reset => state.OUTPUTSELECT
+reset => state.OUTPUTSELECT
+reset => state.OUTPUTSELECT
+reset => cycle_count.OUTPUTSELECT
+reset => cycle_count.OUTPUTSELECT
+reset => cycle_count.OUTPUTSELECT
+reset => cycle_count.OUTPUTSELECT
+reset => cycle_count.OUTPUTSELECT
+reset => cycle_count.OUTPUTSELECT
+reset => cycle_count.OUTPUTSELECT
+reset => cycle_count.OUTPUTSELECT
+reset => cycle_count.OUTPUTSELECT
+reset => cycle_count.OUTPUTSELECT
+reset => cycle_count.OUTPUTSELECT
+reset => dout.OUTPUTSELECT
+reset => dout.OUTPUTSELECT
+reset => dout.OUTPUTSELECT
+reset => dout.OUTPUTSELECT
+reset => dout.OUTPUTSELECT
+reset => dout.OUTPUTSELECT
+reset => dout.OUTPUTSELECT
+reset => dout.OUTPUTSELECT
+reset => valid.OUTPUTSELECT
+reset => bit_count.OUTPUTSELECT
+reset => bit_count.OUTPUTSELECT
+reset => bit_count.OUTPUTSELECT
+din => din.IN1
+dout[0] <= dout[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dout[1] <= dout[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dout[2] <= dout[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dout[3] <= dout[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dout[4] <= dout[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dout[5] <= dout[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dout[6] <= dout[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dout[7] <= dout[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+valid <= valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|midi_top|midi_receiver:midi|shift_8:buffer
+clk => buffer[0].CLK
+clk => buffer[1].CLK
+clk => buffer[2].CLK
+clk => buffer[3].CLK
+clk => buffer[4].CLK
+clk => buffer[5].CLK
+clk => buffer[6].CLK
+clk => buffer[7].CLK
+reset => buffer[0].ACLR
+reset => buffer[1].ACLR
+reset => buffer[2].ACLR
+reset => buffer[3].ACLR
+reset => buffer[4].ACLR
+reset => buffer[5].ACLR
+reset => buffer[6].ACLR
+reset => buffer[7].ACLR
+in => buffer[7].DATAIN
+shift_en => buffer[0].ENA
+shift_en => buffer[7].ENA
+shift_en => buffer[6].ENA
+shift_en => buffer[5].ENA
+shift_en => buffer[4].ENA
+shift_en => buffer[3].ENA
+shift_en => buffer[2].ENA
+shift_en => buffer[1].ENA
+out[0] <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= buffer[1].DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= buffer[2].DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= buffer[3].DB_MAX_OUTPUT_PORT_TYPE
+out[4] <= buffer[4].DB_MAX_OUTPUT_PORT_TYPE
+out[5] <= buffer[5].DB_MAX_OUTPUT_PORT_TYPE
+out[6] <= buffer[6].DB_MAX_OUTPUT_PORT_TYPE
+out[7] <= buffer[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|midi_top|led_dec:led_high
+data_in[0] => Decoder0.IN3
+data_in[1] => Decoder0.IN2
+data_in[2] => Decoder0.IN1
+data_in[3] => Decoder0.IN0
+segments_out[0] <= segments_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[1] <= segments_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[2] <= segments_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[3] <= segments_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[4] <= segments_out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[5] <= segments_out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[6] <= segments_out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+valid_in => segments_out[3]~reg0.ENA
+valid_in => segments_out[2]~reg0.ENA
+valid_in => segments_out[1]~reg0.ENA
+valid_in => segments_out[0]~reg0.ENA
+valid_in => segments_out[4]~reg0.ENA
+valid_in => segments_out[5]~reg0.ENA
+valid_in => segments_out[6]~reg0.ENA
+clk => segments_out[0]~reg0.CLK
+clk => segments_out[1]~reg0.CLK
+clk => segments_out[2]~reg0.CLK
+clk => segments_out[3]~reg0.CLK
+clk => segments_out[4]~reg0.CLK
+clk => segments_out[5]~reg0.CLK
+clk => segments_out[6]~reg0.CLK
+
+
+|midi_top|led_dec:led_low
+data_in[0] => Decoder0.IN3
+data_in[1] => Decoder0.IN2
+data_in[2] => Decoder0.IN1
+data_in[3] => Decoder0.IN0
+segments_out[0] <= segments_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[1] <= segments_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[2] <= segments_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[3] <= segments_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[4] <= segments_out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[5] <= segments_out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[6] <= segments_out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+valid_in => segments_out[3]~reg0.ENA
+valid_in => segments_out[2]~reg0.ENA
+valid_in => segments_out[1]~reg0.ENA
+valid_in => segments_out[0]~reg0.ENA
+valid_in => segments_out[4]~reg0.ENA
+valid_in => segments_out[5]~reg0.ENA
+valid_in => segments_out[6]~reg0.ENA
+clk => segments_out[0]~reg0.CLK
+clk => segments_out[1]~reg0.CLK
+clk => segments_out[2]~reg0.CLK
+clk => segments_out[3]~reg0.CLK
+clk => segments_out[4]~reg0.CLK
+clk => segments_out[5]~reg0.CLK
+clk => segments_out[6]~reg0.CLK
+
+

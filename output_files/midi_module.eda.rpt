@@ -1,0 +1,242 @@
+EDA Netlist Writer report for midi_module
+Wed May 10 17:00:48 2023
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. EDA Netlist Writer Summary
+  3. Simulation Settings
+  4. Simulation Generated Files
+  5. Board-Level Settings
+  6. Board-Level Generated Files
+  7. EDA Netlist Writer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; EDA Netlist Writer Summary                                                    ;
++---------------------------------------+---------------------------------------+
+; EDA Netlist Writer Status             ; Successful - Wed May 10 17:00:48 2023 ;
+; Revision Name                         ; midi_module                           ;
+; Top-level Entity Name                 ; midi_top                              ;
+; Family                                ; Cyclone IV E                          ;
+; Simulation Files Creation             ; Successful                            ;
+; Board Signal Integrity Files Creation ; Successful                            ;
+; Board Timing Analysis Files Creation  ; Successful                            ;
+; Board Boundary Scan Files Creation    ; Successful                            ;
++---------------------------------------+---------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Simulation Settings                                                                                                     ;
++---------------------------------------------------------------------------------------------------+---------------------+
+; Option                                                                                            ; Setting             ;
++---------------------------------------------------------------------------------------------------+---------------------+
+; Tool Name                                                                                         ; QuestaSim (Verilog) ;
+; Generate functional simulation netlist                                                            ; Off                 ;
+; Time scale                                                                                        ; 1 ps                ;
+; Truncate long hierarchy paths                                                                     ; Off                 ;
+; Map illegal HDL characters                                                                        ; Off                 ;
+; Flatten buses into individual nodes                                                               ; Off                 ;
+; Maintain hierarchy                                                                                ; Off                 ;
+; Bring out device-wide set/reset signals as ports                                                  ; Off                 ;
+; Enable glitch filtering                                                                           ; Off                 ;
+; Do not write top level VHDL entity                                                                ; Off                 ;
+; Disable detection of setup and hold time violations in the input registers of bi-directional pins ; Off                 ;
+; Architecture name in VHDL output netlist                                                          ; structure           ;
+; Generate third-party EDA tool command script for RTL functional simulation                        ; Off                 ;
+; Generate third-party EDA tool command script for gate-level simulation                            ; Off                 ;
++---------------------------------------------------------------------------------------------------+---------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                  ;
++---------------------------------------------------------------------------------------------+
+; Generated Files                                                                             ;
++---------------------------------------------------------------------------------------------+
+; C:/cygwin64/home/gyaan/midi_module/simulation/modelsim/midi_module_7_1200mv_85c_slow.vo     ;
+; C:/cygwin64/home/gyaan/midi_module/simulation/modelsim/midi_module_7_1200mv_0c_slow.vo      ;
+; C:/cygwin64/home/gyaan/midi_module/simulation/modelsim/midi_module_min_1200mv_0c_fast.vo    ;
+; C:/cygwin64/home/gyaan/midi_module/simulation/modelsim/midi_module.vo                       ;
+; C:/cygwin64/home/gyaan/midi_module/simulation/modelsim/midi_module_7_1200mv_85c_v_slow.sdo  ;
+; C:/cygwin64/home/gyaan/midi_module/simulation/modelsim/midi_module_7_1200mv_0c_v_slow.sdo   ;
+; C:/cygwin64/home/gyaan/midi_module/simulation/modelsim/midi_module_min_1200mv_0c_v_fast.sdo ;
+; C:/cygwin64/home/gyaan/midi_module/simulation/modelsim/midi_module_v.sdo                    ;
++---------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------+
+; Board-Level Settings                    ;
++-------------------------------+---------+
+; Option                        ; Setting ;
++-------------------------------+---------+
+; Board Signal Integrity Format ; HSPICE  ;
+; Board Timing Analysis Format  ; STAMP   ;
+; Board Boundary Scan Format    ; BSDL    ;
++-------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board-Level Generated Files                                                                                                                    ;
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Generated Files                                                                                                                                ;
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Signal Integrity                                                                                                                         ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_m24_segments_out_high_0__out.sp                                                   ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_y22_segments_out_high_1__out.sp                                                   ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_w21_segments_out_high_2__out.sp                                                   ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_w22_segments_out_high_3__out.sp                                                   ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_w25_segments_out_high_4__out.sp                                                   ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_u23_segments_out_high_5__out.sp                                                   ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_u24_segments_out_high_6__out.sp                                                   ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_g18_segments_out_low_0__out.sp                                                    ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_f22_segments_out_low_1__out.sp                                                    ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_e17_segments_out_low_2__out.sp                                                    ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_l26_segments_out_low_3__out.sp                                                    ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_l25_segments_out_low_4__out.sp                                                    ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_j22_segments_out_low_5__out.sp                                                    ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_h22_segments_out_low_6__out.sp                                                    ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_j10_din_in.sp                                                                     ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_m23_reset_in.sp                                                                   ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_y2_clk_in.sp                                                                      ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_f4__altera_asdo_data1__in.sp                                                      ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_e2__altera_flash_nce_ncso__in.sp                                                  ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_p3__altera_dclk__out.sp                                                           ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_n7__altera_data0__in.sp                                                           ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_p28__altera_nceo__out.sp                                                          ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/output_delay_control.lib                                                               ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/package.lib                                                                            ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/cir/hio_buffer.inc                                                                         ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/cir/vio_diff_buffer.inc                                                                    ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/cir/hio_deddiff_buffer.inc                                                                 ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/cive_tt.inc                                                                            ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/drive_select_hio.lib                                                                   ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/drive_select_lvds.lib                                                                  ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/drive_select_vio.lib                                                                   ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/cir/vio_buffer.inc                                                                         ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/cir/hio_diff_buffer.inc                                                                    ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/cive_ff.inc                                                                            ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/cive_ss.inc                                                                            ;
+;     C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/slew_rate.lib                                                                          ;
+; Board Timing Analysis                                                                                                                          ;
+;     C:/cygwin64/home/gyaan/midi_module/timing/stamp/C:/cygwin64/home/gyaan/midi_module/timing/stamp//midi_module_7_1200mv_85c_board_slow.mod   ;
+;     C:/cygwin64/home/gyaan/midi_module/timing/stamp/C:/cygwin64/home/gyaan/midi_module/timing/stamp//midi_module_7_1200mv_85c_board_slow.data  ;
+;     C:/cygwin64/home/gyaan/midi_module/timing/stamp/C:/cygwin64/home/gyaan/midi_module/timing/stamp//midi_module_7_1200mv_0c_board_slow.mod    ;
+;     C:/cygwin64/home/gyaan/midi_module/timing/stamp/C:/cygwin64/home/gyaan/midi_module/timing/stamp//midi_module_7_1200mv_0c_board_slow.data   ;
+;     C:/cygwin64/home/gyaan/midi_module/timing/stamp/C:/cygwin64/home/gyaan/midi_module/timing/stamp//midi_module_min_1200mv_0c_board_fast.mod  ;
+;     C:/cygwin64/home/gyaan/midi_module/timing/stamp/C:/cygwin64/home/gyaan/midi_module/timing/stamp//midi_module_min_1200mv_0c_board_fast.data ;
+;     C:/cygwin64/home/gyaan/midi_module/timing/stamp/C:/cygwin64/home/gyaan/midi_module/timing/stamp//midi_module_board.mod                     ;
+;     C:/cygwin64/home/gyaan/midi_module/timing/stamp/C:/cygwin64/home/gyaan/midi_module/timing/stamp//midi_module_board.data                    ;
+; Board Boundary Scan                                                                                                                            ;
+;     C:/cygwin64/home/gyaan/midi_module/board/bsd/EP4CE115F29C7_pre.bsd                                                                         ;
++------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------+
+; EDA Netlist Writer Messages ;
++-----------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime EDA Netlist Writer
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Wed May 10 17:00:45 2023
+Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off midi_module -c midi_module
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (204019): Generated file midi_module_7_1200mv_85c_slow.vo in folder "C:/cygwin64/home/gyaan/midi_module/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file midi_module_7_1200mv_0c_slow.vo in folder "C:/cygwin64/home/gyaan/midi_module/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file midi_module_min_1200mv_0c_fast.vo in folder "C:/cygwin64/home/gyaan/midi_module/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file midi_module.vo in folder "C:/cygwin64/home/gyaan/midi_module/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file midi_module_7_1200mv_85c_v_slow.sdo in folder "C:/cygwin64/home/gyaan/midi_module/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file midi_module_7_1200mv_0c_v_slow.sdo in folder "C:/cygwin64/home/gyaan/midi_module/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file midi_module_min_1200mv_0c_v_fast.sdo in folder "C:/cygwin64/home/gyaan/midi_module/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file midi_module_v.sdo in folder "C:/cygwin64/home/gyaan/midi_module/simulation/modelsim/" for EDA simulation tool
+Info (199047): Generated files "C:/cygwin64/home/gyaan/midi_module/timing/stamp//midi_module_7_1200mv_85c_board_slow.mod" and "C:/cygwin64/home/gyaan/midi_module/timing/stamp//midi_module_7_1200mv_85c_board_slow.data"
+Info (199047): Generated files "C:/cygwin64/home/gyaan/midi_module/timing/stamp//midi_module_7_1200mv_0c_board_slow.mod" and "C:/cygwin64/home/gyaan/midi_module/timing/stamp//midi_module_7_1200mv_0c_board_slow.data"
+Info (199047): Generated files "C:/cygwin64/home/gyaan/midi_module/timing/stamp//midi_module_min_1200mv_0c_board_fast.mod" and "C:/cygwin64/home/gyaan/midi_module/timing/stamp//midi_module_min_1200mv_0c_board_fast.data"
+Info (199047): Generated files "C:/cygwin64/home/gyaan/midi_module/timing/stamp//midi_module_board.mod" and "C:/cygwin64/home/gyaan/midi_module/timing/stamp//midi_module_board.data"
+Info (199053): Generated 36 HSPICE Output files for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_m24_segments_out_high_0__out.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_y22_segments_out_high_1__out.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_w21_segments_out_high_2__out.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_w22_segments_out_high_3__out.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_w25_segments_out_high_4__out.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_u23_segments_out_high_5__out.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_u24_segments_out_high_6__out.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_g18_segments_out_low_0__out.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_f22_segments_out_low_1__out.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_e17_segments_out_low_2__out.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_l26_segments_out_low_3__out.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_l25_segments_out_low_4__out.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_j22_segments_out_low_5__out.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_h22_segments_out_low_6__out.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_j10_din_in.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_m23_reset_in.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_y2_clk_in.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_f4__altera_asdo_data1__in.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_e2__altera_flash_nce_ncso__in.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_p3__altera_dclk__out.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_n7__altera_data0__in.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/ep4ce115_p28__altera_nceo__out.sp for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/output_delay_control.lib for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/package.lib for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/cir/hio_buffer.inc for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/cir/vio_diff_buffer.inc for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/cir/hio_deddiff_buffer.inc for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/cive_tt.inc for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/drive_select_hio.lib for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/drive_select_lvds.lib for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/drive_select_vio.lib for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/cir/vio_buffer.inc for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/cir/hio_diff_buffer.inc for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/cive_ff.inc for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/cive_ss.inc for board level analysis
+    Info (199051): Generated HSPICE Output File C:/cygwin64/home/gyaan/midi_module/board/hspice/lib/slew_rate.lib for board level analysis
+Info: TOTAL BSCAN REGISTERS IS 540
+Info: TOTAL IO PAD COUNT IS 532
+Warning: New Pin Type UDCLK
+Warning: New Pin Type Dedicated Clock
+Warning: New Pin Type Dedicated Clock
+Warning: New Pin Type Dedicated Clock
+Warning: New Pin Type Dedicated Clock
+Warning: New Pin Type Dedicated Clock
+Warning: New Pin Type Dedicated Clock
+Warning: New Pin Type Dedicated Clock
+Warning: New Pin Type Dedicated Clock
+Warning: New Pin Type Dedicated Clock
+Warning: New Pin Type Dedicated Clock
+Warning: New Pin Type Dedicated Clock
+Warning: New Pin Type Dedicated Clock
+Warning: New Pin Type Dedicated Clock
+Warning: New Pin Type Dedicated Clock
+Warning: New Pin Type Dedicated Clock
+Warning: New Pin Type Dedicated Clock
+Info: EP4CE115F29 has 540 JTAG SEQUENCE AVAILABLE
+Info (199065): Generated Boundary-Scan Description Language output file C:/cygwin64/home/gyaan/midi_module/board/bsd/EP4CE115F29C7_pre.bsd for board-level analysis
+Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 18 warnings
+    Info: Peak virtual memory: 4658 megabytes
+    Info: Processing ended: Wed May 10 17:00:48 2023
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+

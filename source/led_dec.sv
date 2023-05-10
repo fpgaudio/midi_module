@@ -1,11 +1,13 @@
 module led_dec(
     input  logic [3:0]  data_in,
     output logic [6:0]  segments_out,
-    input  logic        valid_in
+    input  logic        valid_in,
+	 input  logic 			clk
 );
 
 
-always_ff @(posedge valid_in) begin
+always_ff @(posedge clk) begin
+	if (valid_in == 1'b1) begin
     case (data_in)
         4'h0: segments_out = 7'b1000000;
         4'h1: segments_out = 7'b1111001;
@@ -24,6 +26,7 @@ always_ff @(posedge valid_in) begin
         4'he: segments_out = 7'b0000110;
         default: segments_out = 7'b0001110;
     endcase
+	 end
 end
 
 endmodule
