@@ -46,9 +46,11 @@ segments_out_low[3],L26,output,2.5 V,Default,Series 50 Ohm without Calibration,F
 segments_out_low[4],L25,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
 segments_out_low[5],J22,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
 segments_out_low[6],H22,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
+led_high_bit,F19,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
+led_din,G19,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
 din,J10,input,2.5 V,,Off,--,swap_1,--
-reset,M23,input,2.5 V,,Off,--,swap_1,--
 clk,Y2,input,2.5 V,,Off,--,swap_1,--
+reset,M23,input,2.5 V,,Off,--,swap_1,--
 ~ALTERA_ASDO_DATA1~,F4,input,2.5 V,,Off,--,NOSWAP,--
 ~ALTERA_FLASH_nCE_nCSO~,E2,input,2.5 V,,Off,--,NOSWAP,--
 ~ALTERA_DCLK~,P3,output,2.5 V,Default,Off,FAST,NOSWAP,--

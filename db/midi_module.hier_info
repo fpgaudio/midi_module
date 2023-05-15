@@ -1,6 +1,6 @@
 |midi_top
-clk => clk.IN1
-reset => reset.IN1
+clk => clk.IN3
+reset => reset_n.IN3
 din => din.IN1
 segments_out_high[0] << led_dec:led_high.segments_out
 segments_out_high[1] << led_dec:led_high.segments_out
@@ -16,6 +16,8 @@ segments_out_low[3] << led_dec:led_low.segments_out
 segments_out_low[4] << led_dec:led_low.segments_out
 segments_out_low[5] << led_dec:led_low.segments_out
 segments_out_low[6] << led_dec:led_low.segments_out
+led_high_bit << <VCC>
+led_din << din.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |midi_top|midi_receiver:midi
@@ -108,13 +110,13 @@ segments_out[3] <= segments_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 segments_out[4] <= segments_out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 segments_out[5] <= segments_out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 segments_out[6] <= segments_out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+valid_in => segments_out[6]~reg0.ENA
+valid_in => segments_out[5]~reg0.ENA
+valid_in => segments_out[4]~reg0.ENA
 valid_in => segments_out[3]~reg0.ENA
 valid_in => segments_out[2]~reg0.ENA
 valid_in => segments_out[1]~reg0.ENA
 valid_in => segments_out[0]~reg0.ENA
-valid_in => segments_out[4]~reg0.ENA
-valid_in => segments_out[5]~reg0.ENA
-valid_in => segments_out[6]~reg0.ENA
 clk => segments_out[0]~reg0.CLK
 clk => segments_out[1]~reg0.CLK
 clk => segments_out[2]~reg0.CLK
@@ -122,6 +124,13 @@ clk => segments_out[3]~reg0.CLK
 clk => segments_out[4]~reg0.CLK
 clk => segments_out[5]~reg0.CLK
 clk => segments_out[6]~reg0.CLK
+reset => segments_out[0]~reg0.ACLR
+reset => segments_out[1]~reg0.ACLR
+reset => segments_out[2]~reg0.ACLR
+reset => segments_out[3]~reg0.ACLR
+reset => segments_out[4]~reg0.ACLR
+reset => segments_out[5]~reg0.ACLR
+reset => segments_out[6]~reg0.ACLR
 
 
 |midi_top|led_dec:led_low
@@ -136,13 +145,13 @@ segments_out[3] <= segments_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 segments_out[4] <= segments_out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 segments_out[5] <= segments_out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 segments_out[6] <= segments_out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+valid_in => segments_out[6]~reg0.ENA
+valid_in => segments_out[5]~reg0.ENA
+valid_in => segments_out[4]~reg0.ENA
 valid_in => segments_out[3]~reg0.ENA
 valid_in => segments_out[2]~reg0.ENA
 valid_in => segments_out[1]~reg0.ENA
 valid_in => segments_out[0]~reg0.ENA
-valid_in => segments_out[4]~reg0.ENA
-valid_in => segments_out[5]~reg0.ENA
-valid_in => segments_out[6]~reg0.ENA
 clk => segments_out[0]~reg0.CLK
 clk => segments_out[1]~reg0.CLK
 clk => segments_out[2]~reg0.CLK
@@ -150,5 +159,12 @@ clk => segments_out[3]~reg0.CLK
 clk => segments_out[4]~reg0.CLK
 clk => segments_out[5]~reg0.CLK
 clk => segments_out[6]~reg0.CLK
+reset => segments_out[0]~reg0.ACLR
+reset => segments_out[1]~reg0.ACLR
+reset => segments_out[2]~reg0.ACLR
+reset => segments_out[3]~reg0.ACLR
+reset => segments_out[4]~reg0.ACLR
+reset => segments_out[5]~reg0.ACLR
+reset => segments_out[6]~reg0.ACLR
 
 

@@ -1,5 +1,5 @@
 Timing Analyzer report for midi_module
-Wed May 10 17:00:45 2023
+Mon May 15 16:52:44 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -18,32 +18,51 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  10. Slow 1200mV 85C Model Recovery Summary
  11. Slow 1200mV 85C Model Removal Summary
  12. Slow 1200mV 85C Model Minimum Pulse Width Summary
- 13. Slow 1200mV 85C Model Metastability Summary
- 14. Slow 1200mV 0C Model Fmax Summary
- 15. Slow 1200mV 0C Model Setup Summary
- 16. Slow 1200mV 0C Model Hold Summary
- 17. Slow 1200mV 0C Model Recovery Summary
- 18. Slow 1200mV 0C Model Removal Summary
- 19. Slow 1200mV 0C Model Minimum Pulse Width Summary
- 20. Slow 1200mV 0C Model Metastability Summary
- 21. Fast 1200mV 0C Model Setup Summary
- 22. Fast 1200mV 0C Model Hold Summary
- 23. Fast 1200mV 0C Model Recovery Summary
- 24. Fast 1200mV 0C Model Removal Summary
- 25. Fast 1200mV 0C Model Minimum Pulse Width Summary
- 26. Fast 1200mV 0C Model Metastability Summary
- 27. Multicorner Timing Analysis Summary
- 28. Board Trace Model Assignments
- 29. Input Transition Times
- 30. Signal Integrity Metrics (Slow 1200mv 0c Model)
- 31. Signal Integrity Metrics (Slow 1200mv 85c Model)
- 32. Signal Integrity Metrics (Fast 1200mv 0c Model)
- 33. Clock Transfers
- 34. Report TCCS
- 35. Report RSKM
- 36. Unconstrained Paths Summary
- 37. Clock Status Summary
- 38. Timing Analyzer Messages
+ 13. Slow 1200mV 85C Model Setup: 'SYSCLK'
+ 14. Slow 1200mV 85C Model Hold: 'SYSCLK'
+ 15. Slow 1200mV 85C Model Recovery: 'SYSCLK'
+ 16. Slow 1200mV 85C Model Removal: 'SYSCLK'
+ 17. Slow 1200mV 85C Model Metastability Summary
+ 18. Slow 1200mV 0C Model Fmax Summary
+ 19. Slow 1200mV 0C Model Setup Summary
+ 20. Slow 1200mV 0C Model Hold Summary
+ 21. Slow 1200mV 0C Model Recovery Summary
+ 22. Slow 1200mV 0C Model Removal Summary
+ 23. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 24. Slow 1200mV 0C Model Setup: 'SYSCLK'
+ 25. Slow 1200mV 0C Model Hold: 'SYSCLK'
+ 26. Slow 1200mV 0C Model Recovery: 'SYSCLK'
+ 27. Slow 1200mV 0C Model Removal: 'SYSCLK'
+ 28. Slow 1200mV 0C Model Metastability Summary
+ 29. Fast 1200mV 0C Model Setup Summary
+ 30. Fast 1200mV 0C Model Hold Summary
+ 31. Fast 1200mV 0C Model Recovery Summary
+ 32. Fast 1200mV 0C Model Removal Summary
+ 33. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 34. Fast 1200mV 0C Model Setup: 'SYSCLK'
+ 35. Fast 1200mV 0C Model Hold: 'SYSCLK'
+ 36. Fast 1200mV 0C Model Recovery: 'SYSCLK'
+ 37. Fast 1200mV 0C Model Removal: 'SYSCLK'
+ 38. Fast 1200mV 0C Model Metastability Summary
+ 39. Multicorner Timing Analysis Summary
+ 40. Board Trace Model Assignments
+ 41. Input Transition Times
+ 42. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 43. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 44. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 45. Setup Transfers
+ 46. Hold Transfers
+ 47. Recovery Transfers
+ 48. Removal Transfers
+ 49. Report TCCS
+ 50. Report RSKM
+ 51. Unconstrained Paths Summary
+ 52. Clock Status Summary
+ 53. Unconstrained Input Ports
+ 54. Unconstrained Output Ports
+ 55. Unconstrained Input Ports
+ 56. Unconstrained Output Ports
+ 57. Timing Analyzer Messages
 
 
 
@@ -88,12 +107,12 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
+; Average used               ; 1.02        ;
 ; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ;   0.1%      ;
+;     Processors 2-8         ;   0.3%      ;
 +----------------------------+-------------+
 
 
@@ -102,7 +121,7 @@ refer to the applicable agreement for further details.
 +---------------+--------+--------------------------+
 ; SDC File Path ; Status ; Read at                  ;
 +---------------+--------+--------------------------+
-; SDC1.sdc      ; OK     ; Wed May 10 17:00:44 2023 ;
+; SDC1.sdc      ; OK     ; Mon May 15 16:52:43 2023 ;
 +---------------+--------+--------------------------+
 
 
@@ -115,10 +134,14 @@ refer to the applicable agreement for further details.
 +------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
 
 
---------------------------------------
-; Slow 1200mV 85C Model Fmax Summary ;
---------------------------------------
-No paths to report.
++--------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary               ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 249.69 MHz ; 249.69 MHz      ; SYSCLK     ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
 ----------------------------------
@@ -127,37 +150,297 @@ No paths to report.
 HTML report is unavailable in plain text report export.
 
 
----------------------------------------
++-------------------------------------+
 ; Slow 1200mV 85C Model Setup Summary ;
----------------------------------------
-No paths to report.
++--------+--------+-------------------+
+; Clock  ; Slack  ; End Point TNS     ;
++--------+--------+-------------------+
+; SYSCLK ; 15.995 ; 0.000             ;
++--------+--------+-------------------+
 
 
---------------------------------------
++------------------------------------+
 ; Slow 1200mV 85C Model Hold Summary ;
---------------------------------------
-No paths to report.
++--------+-------+-------------------+
+; Clock  ; Slack ; End Point TNS     ;
++--------+-------+-------------------+
+; SYSCLK ; 0.402 ; 0.000             ;
++--------+-------+-------------------+
 
 
-------------------------------------------
++----------------------------------------+
 ; Slow 1200mV 85C Model Recovery Summary ;
-------------------------------------------
-No paths to report.
++--------+--------+----------------------+
+; Clock  ; Slack  ; End Point TNS        ;
++--------+--------+----------------------+
+; SYSCLK ; 17.831 ; 0.000                ;
++--------+--------+----------------------+
 
 
------------------------------------------
++---------------------------------------+
 ; Slow 1200mV 85C Model Removal Summary ;
------------------------------------------
-No paths to report.
++--------+-------+----------------------+
+; Clock  ; Slack ; End Point TNS        ;
++--------+-------+----------------------+
+; SYSCLK ; 1.186 ; 0.000                ;
++--------+-------+----------------------+
 
 
 +---------------------------------------------------+
 ; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
-+--------+--------+---------------------------------+
-; Clock  ; Slack  ; End Point TNS                   ;
-+--------+--------+---------------------------------+
-; SYSCLK ; 16.000 ; 0.000                           ;
-+--------+--------+---------------------------------+
++--------+-------+----------------------------------+
+; Clock  ; Slack ; End Point TNS                    ;
++--------+-------+----------------------------------+
+; SYSCLK ; 9.756 ; 0.000                            ;
++--------+-------+----------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'SYSCLK'                                                                                                                          ;
++--------+-----------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                         ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 15.995 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.943      ;
+; 15.995 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.943      ;
+; 15.995 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.943      ;
+; 15.995 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.943      ;
+; 15.995 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.943      ;
+; 15.995 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.943      ;
+; 15.995 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.943      ;
+; 15.995 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.943      ;
+; 15.995 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.943      ;
+; 15.995 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.943      ;
+; 15.995 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.943      ;
+; 16.005 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.933      ;
+; 16.005 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.933      ;
+; 16.005 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.933      ;
+; 16.005 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.933      ;
+; 16.005 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.933      ;
+; 16.005 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.933      ;
+; 16.005 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.933      ;
+; 16.005 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.933      ;
+; 16.005 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.933      ;
+; 16.005 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.933      ;
+; 16.005 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.933      ;
+; 16.007 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.931      ;
+; 16.007 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.931      ;
+; 16.007 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.931      ;
+; 16.007 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.931      ;
+; 16.007 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.931      ;
+; 16.007 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.931      ;
+; 16.007 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.931      ;
+; 16.007 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.931      ;
+; 16.007 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.931      ;
+; 16.007 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.931      ;
+; 16.007 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.931      ;
+; 16.031 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.907      ;
+; 16.031 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.907      ;
+; 16.031 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.907      ;
+; 16.031 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.907      ;
+; 16.031 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.907      ;
+; 16.031 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.907      ;
+; 16.031 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.907      ;
+; 16.031 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.907      ;
+; 16.031 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.907      ;
+; 16.031 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.907      ;
+; 16.031 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.907      ;
+; 16.060 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.878      ;
+; 16.060 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.878      ;
+; 16.060 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.878      ;
+; 16.060 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.878      ;
+; 16.060 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.878      ;
+; 16.060 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.878      ;
+; 16.060 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.878      ;
+; 16.060 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.878      ;
+; 16.060 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.878      ;
+; 16.060 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.878      ;
+; 16.060 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.878      ;
+; 16.113 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.825      ;
+; 16.113 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.825      ;
+; 16.113 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.825      ;
+; 16.113 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.825      ;
+; 16.113 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.825      ;
+; 16.113 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.825      ;
+; 16.113 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.825      ;
+; 16.113 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.825      ;
+; 16.113 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.825      ;
+; 16.113 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.825      ;
+; 16.113 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.825      ;
+; 16.161 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.777      ;
+; 16.161 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.777      ;
+; 16.161 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.777      ;
+; 16.161 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.777      ;
+; 16.161 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.777      ;
+; 16.161 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.777      ;
+; 16.161 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.777      ;
+; 16.161 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.777      ;
+; 16.161 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.777      ;
+; 16.161 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.777      ;
+; 16.161 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.777      ;
+; 16.273 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.665      ;
+; 16.273 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.665      ;
+; 16.273 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.665      ;
+; 16.273 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.665      ;
+; 16.273 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.665      ;
+; 16.273 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.665      ;
+; 16.273 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.665      ;
+; 16.273 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.665      ;
+; 16.273 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.665      ;
+; 16.273 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.665      ;
+; 16.273 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.665      ;
+; 16.274 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.664      ;
+; 16.274 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.664      ;
+; 16.274 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.664      ;
+; 16.274 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.664      ;
+; 16.274 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.664      ;
+; 16.274 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.664      ;
+; 16.274 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.664      ;
+; 16.274 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.664      ;
+; 16.274 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.664      ;
+; 16.274 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.664      ;
+; 16.274 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.664      ;
+; 16.303 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|shift_8:buffer|buffer[0] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 3.635      ;
++--------+-----------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'SYSCLK'                                                                                                                                    ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                   ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.402 ; midi_receiver:midi|state.WAIT               ; midi_receiver:midi|state.WAIT               ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.669      ;
+; 0.402 ; midi_receiver:midi|bit_count[2]             ; midi_receiver:midi|bit_count[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.669      ;
+; 0.402 ; midi_receiver:midi|bit_count[1]             ; midi_receiver:midi|bit_count[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.669      ;
+; 0.402 ; midi_receiver:midi|bit_count[0]             ; midi_receiver:midi|bit_count[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.669      ;
+; 0.403 ; midi_receiver:midi|state.DATA               ; midi_receiver:midi|state.DATA               ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.669      ;
+; 0.435 ; midi_receiver:midi|cycle_count[10]          ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.701      ;
+; 0.437 ; midi_receiver:midi|shift_8:buffer|buffer[2] ; midi_receiver:midi|shift_8:buffer|buffer[1] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.703      ;
+; 0.438 ; midi_receiver:midi|shift_8:buffer|buffer[5] ; midi_receiver:midi|shift_8:buffer|buffer[4] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.704      ;
+; 0.438 ; midi_receiver:midi|shift_8:buffer|buffer[6] ; midi_receiver:midi|shift_8:buffer|buffer[5] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.704      ;
+; 0.439 ; midi_receiver:midi|shift_8:buffer|buffer[1] ; midi_receiver:midi|shift_8:buffer|buffer[0] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.705      ;
+; 0.439 ; midi_receiver:midi|shift_8:buffer|buffer[4] ; midi_receiver:midi|shift_8:buffer|buffer[3] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.705      ;
+; 0.478 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|bit_count[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.745      ;
+; 0.479 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|state.WAIT               ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.746      ;
+; 0.486 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|bit_count[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.753      ;
+; 0.560 ; midi_receiver:midi|shift_8:buffer|buffer[3] ; midi_receiver:midi|dout[3]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.826      ;
+; 0.607 ; midi_receiver:midi|shift_8:buffer|buffer[3] ; midi_receiver:midi|shift_8:buffer|buffer[2] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.873      ;
+; 0.629 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[3]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.896      ;
+; 0.630 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[1]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.897      ;
+; 0.630 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[0]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.897      ;
+; 0.633 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[2]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.900      ;
+; 0.638 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[6]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.905      ;
+; 0.641 ; midi_receiver:midi|shift_8:buffer|buffer[0] ; midi_receiver:midi|dout[0]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.907      ;
+; 0.642 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.909      ;
+; 0.642 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[5]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.909      ;
+; 0.642 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[4]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.909      ;
+; 0.642 ; midi_receiver:midi|cycle_count[1]           ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.908      ;
+; 0.642 ; midi_receiver:midi|cycle_count[9]           ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.908      ;
+; 0.643 ; midi_receiver:midi|cycle_count[3]           ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.909      ;
+; 0.644 ; midi_receiver:midi|shift_8:buffer|buffer[4] ; midi_receiver:midi|dout[4]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.910      ;
+; 0.644 ; midi_receiver:midi|shift_8:buffer|buffer[6] ; midi_receiver:midi|dout[6]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.910      ;
+; 0.645 ; midi_receiver:midi|cycle_count[7]           ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.911      ;
+; 0.645 ; midi_receiver:midi|cycle_count[4]           ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.911      ;
+; 0.647 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.914      ;
+; 0.648 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[3]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.915      ;
+; 0.648 ; midi_receiver:midi|cycle_count[2]           ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.914      ;
+; 0.648 ; midi_receiver:midi|cycle_count[6]           ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.914      ;
+; 0.649 ; midi_receiver:midi|shift_8:buffer|buffer[2] ; midi_receiver:midi|dout[2]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.915      ;
+; 0.649 ; midi_receiver:midi|shift_8:buffer|buffer[5] ; midi_receiver:midi|dout[5]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.915      ;
+; 0.651 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[6]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.918      ;
+; 0.651 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.918      ;
+; 0.651 ; midi_receiver:midi|shift_8:buffer|buffer[1] ; midi_receiver:midi|dout[1]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.917      ;
+; 0.654 ; midi_receiver:midi|cycle_count[5]           ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.920      ;
+; 0.656 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[5]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.923      ;
+; 0.657 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[4]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 0.924      ;
+; 0.657 ; midi_receiver:midi|cycle_count[8]           ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.923      ;
+; 0.668 ; midi_receiver:midi|state.DATA               ; midi_receiver:midi|bit_count[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.934      ;
+; 0.670 ; midi_receiver:midi|cycle_count[0]           ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.936      ;
+; 0.730 ; midi_receiver:midi|state.IDLE               ; midi_receiver:midi|state.START              ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 0.996      ;
+; 0.752 ; midi_receiver:midi|state.WAIT               ; midi_receiver:midi|bit_count[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.019      ;
+; 0.777 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[5]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.044      ;
+; 0.778 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[4]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.045      ;
+; 0.782 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[0]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.049      ;
+; 0.783 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[3]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.050      ;
+; 0.783 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[6]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.050      ;
+; 0.785 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[1]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.052      ;
+; 0.787 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[2]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.054      ;
+; 0.852 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[0]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.119      ;
+; 0.852 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[0]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.119      ;
+; 0.853 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[5]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.120      ;
+; 0.854 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[3]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.121      ;
+; 0.854 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[1]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.121      ;
+; 0.855 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[3]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.122      ;
+; 0.855 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[2]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.122      ;
+; 0.857 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[5]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.124      ;
+; 0.858 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[6]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.125      ;
+; 0.858 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.125      ;
+; 0.861 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[2]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.128      ;
+; 0.869 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[1]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.136      ;
+; 0.870 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[6]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.137      ;
+; 0.872 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.139      ;
+; 0.873 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[4]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.140      ;
+; 0.874 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[5]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.141      ;
+; 0.875 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.142      ;
+; 0.880 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[6]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.147      ;
+; 0.880 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[4]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.147      ;
+; 0.894 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|dout[5]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 1.160      ;
+; 0.896 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|dout[2]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 1.162      ;
+; 0.896 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[6]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.163      ;
+; 0.897 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.164      ;
+; 0.897 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[5]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.164      ;
+; 0.898 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[3]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.165      ;
+; 0.899 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[4]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.166      ;
+; 0.900 ; midi_receiver:midi|state.WAIT               ; midi_receiver:midi|bit_count[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.167      ;
+; 0.900 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.167      ;
+; 0.901 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|dout[1]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 1.167      ;
+; 0.903 ; midi_receiver:midi|shift_8:buffer|buffer[7] ; midi_receiver:midi|shift_8:buffer|buffer[6] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.079      ; 1.168      ;
+; 0.905 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|dout[0]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 1.171      ;
+; 0.912 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[3]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.179      ;
+; 0.919 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.186      ;
+; 0.919 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[4]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.186      ;
+; 0.924 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[4]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.191      ;
+; 0.925 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.192      ;
+; 0.925 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[3]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.192      ;
+; 0.925 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[5]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.192      ;
+; 0.926 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.193      ;
+; 0.927 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[6]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.194      ;
+; 0.930 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.197      ;
+; 0.960 ; midi_receiver:midi|cycle_count[9]           ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 1.226      ;
+; 0.960 ; midi_receiver:midi|cycle_count[1]           ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 1.226      ;
+; 0.961 ; midi_receiver:midi|cycle_count[3]           ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 1.227      ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Recovery: 'SYSCLK'                                                                                                                   ;
++--------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                     ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 17.831 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[0] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.081     ; 2.106      ;
+; 17.831 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[1] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.081     ; 2.106      ;
+; 17.831 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[2] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.081     ; 2.106      ;
+; 17.831 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[3] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.081     ; 2.106      ;
+; 17.831 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[4] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.081     ; 2.106      ;
+; 17.831 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[5] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.081     ; 2.106      ;
+; 17.831 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[6] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.081     ; 2.106      ;
+; 18.355 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[7] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.080     ; 1.583      ;
++--------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Removal: 'SYSCLK'                                                                                                                   ;
++-------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                     ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 1.186 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[7] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.081      ; 1.453      ;
+; 1.723 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[0] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 1.989      ;
+; 1.723 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[1] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 1.989      ;
+; 1.723 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[2] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 1.989      ;
+; 1.723 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[3] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 1.989      ;
+; 1.723 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[4] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 1.989      ;
+; 1.723 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[5] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 1.989      ;
+; 1.723 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[6] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.080      ; 1.989      ;
++-------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
 -----------------------------------------------
@@ -166,43 +449,307 @@ No paths to report.
 No synchronizer chains to report.
 
 
--------------------------------------
-; Slow 1200mV 0C Model Fmax Summary ;
--------------------------------------
-No paths to report.
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                         ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 275.48 MHz ; 250.0 MHz       ; SYSCLK     ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
---------------------------------------
++------------------------------------+
 ; Slow 1200mV 0C Model Setup Summary ;
---------------------------------------
-No paths to report.
++--------+--------+------------------+
+; Clock  ; Slack  ; End Point TNS    ;
++--------+--------+------------------+
+; SYSCLK ; 16.370 ; 0.000            ;
++--------+--------+------------------+
 
 
--------------------------------------
++-----------------------------------+
 ; Slow 1200mV 0C Model Hold Summary ;
--------------------------------------
-No paths to report.
++--------+-------+------------------+
+; Clock  ; Slack ; End Point TNS    ;
++--------+-------+------------------+
+; SYSCLK ; 0.354 ; 0.000            ;
++--------+-------+------------------+
 
 
------------------------------------------
++---------------------------------------+
 ; Slow 1200mV 0C Model Recovery Summary ;
------------------------------------------
-No paths to report.
++--------+--------+---------------------+
+; Clock  ; Slack  ; End Point TNS       ;
++--------+--------+---------------------+
+; SYSCLK ; 18.041 ; 0.000               ;
++--------+--------+---------------------+
 
 
-----------------------------------------
++--------------------------------------+
 ; Slow 1200mV 0C Model Removal Summary ;
-----------------------------------------
-No paths to report.
++--------+-------+---------------------+
+; Clock  ; Slack ; End Point TNS       ;
++--------+-------+---------------------+
+; SYSCLK ; 1.083 ; 0.000               ;
++--------+-------+---------------------+
 
 
 +--------------------------------------------------+
 ; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
-+--------+--------+--------------------------------+
-; Clock  ; Slack  ; End Point TNS                  ;
-+--------+--------+--------------------------------+
-; SYSCLK ; 16.000 ; 0.000                          ;
-+--------+--------+--------------------------------+
++--------+-------+---------------------------------+
+; Clock  ; Slack ; End Point TNS                   ;
++--------+-------+---------------------------------+
+; SYSCLK ; 9.776 ; 0.000                           ;
++--------+-------+---------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'SYSCLK'                                                                                                                           ;
++--------+-----------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                         ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 16.370 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.577      ;
+; 16.370 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.577      ;
+; 16.370 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.577      ;
+; 16.370 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.577      ;
+; 16.370 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.577      ;
+; 16.370 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.577      ;
+; 16.370 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.577      ;
+; 16.370 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.577      ;
+; 16.370 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.577      ;
+; 16.370 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.577      ;
+; 16.370 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.577      ;
+; 16.382 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.382 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.565      ;
+; 16.385 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.562      ;
+; 16.385 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.562      ;
+; 16.385 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.562      ;
+; 16.385 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.562      ;
+; 16.385 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.562      ;
+; 16.385 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.562      ;
+; 16.385 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.562      ;
+; 16.385 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.562      ;
+; 16.385 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.562      ;
+; 16.385 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.562      ;
+; 16.385 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.562      ;
+; 16.404 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.543      ;
+; 16.404 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.543      ;
+; 16.404 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.543      ;
+; 16.404 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.543      ;
+; 16.404 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.543      ;
+; 16.404 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.543      ;
+; 16.404 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.543      ;
+; 16.404 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.543      ;
+; 16.404 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.543      ;
+; 16.404 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.543      ;
+; 16.404 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.543      ;
+; 16.471 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.476      ;
+; 16.471 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.476      ;
+; 16.471 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.476      ;
+; 16.471 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.476      ;
+; 16.471 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.476      ;
+; 16.471 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.476      ;
+; 16.471 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.476      ;
+; 16.471 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.476      ;
+; 16.471 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.476      ;
+; 16.471 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.476      ;
+; 16.471 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.476      ;
+; 16.518 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.429      ;
+; 16.518 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.429      ;
+; 16.518 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.429      ;
+; 16.518 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.429      ;
+; 16.518 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.429      ;
+; 16.518 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.429      ;
+; 16.518 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.429      ;
+; 16.518 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.429      ;
+; 16.518 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.429      ;
+; 16.518 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.429      ;
+; 16.518 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.429      ;
+; 16.560 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.387      ;
+; 16.560 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.387      ;
+; 16.560 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.387      ;
+; 16.560 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.387      ;
+; 16.560 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.387      ;
+; 16.560 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.387      ;
+; 16.560 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.387      ;
+; 16.560 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.387      ;
+; 16.560 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.387      ;
+; 16.560 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.387      ;
+; 16.560 ; midi_receiver:midi|cycle_count[5] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.387      ;
+; 16.616 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.331      ;
+; 16.616 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.331      ;
+; 16.616 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.331      ;
+; 16.616 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.331      ;
+; 16.616 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.331      ;
+; 16.616 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.331      ;
+; 16.616 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.331      ;
+; 16.616 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.331      ;
+; 16.616 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.331      ;
+; 16.616 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.331      ;
+; 16.616 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.072     ; 3.331      ;
+; 16.624 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|shift_8:buffer|buffer[0] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.073     ; 3.322      ;
++--------+-----------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'SYSCLK'                                                                                                                                     ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                   ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.354 ; midi_receiver:midi|state.WAIT               ; midi_receiver:midi|state.WAIT               ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.597      ;
+; 0.354 ; midi_receiver:midi|bit_count[2]             ; midi_receiver:midi|bit_count[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.597      ;
+; 0.354 ; midi_receiver:midi|bit_count[1]             ; midi_receiver:midi|bit_count[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.597      ;
+; 0.354 ; midi_receiver:midi|bit_count[0]             ; midi_receiver:midi|bit_count[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.597      ;
+; 0.355 ; midi_receiver:midi|state.DATA               ; midi_receiver:midi|state.DATA               ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.071      ; 0.597      ;
+; 0.393 ; midi_receiver:midi|cycle_count[10]          ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.636      ;
+; 0.403 ; midi_receiver:midi|shift_8:buffer|buffer[2] ; midi_receiver:midi|shift_8:buffer|buffer[1] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.646      ;
+; 0.403 ; midi_receiver:midi|shift_8:buffer|buffer[5] ; midi_receiver:midi|shift_8:buffer|buffer[4] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.646      ;
+; 0.405 ; midi_receiver:midi|shift_8:buffer|buffer[1] ; midi_receiver:midi|shift_8:buffer|buffer[0] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.648      ;
+; 0.405 ; midi_receiver:midi|shift_8:buffer|buffer[6] ; midi_receiver:midi|shift_8:buffer|buffer[5] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.648      ;
+; 0.406 ; midi_receiver:midi|shift_8:buffer|buffer[4] ; midi_receiver:midi|shift_8:buffer|buffer[3] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.649      ;
+; 0.440 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|bit_count[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.683      ;
+; 0.441 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|state.WAIT               ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.684      ;
+; 0.448 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|bit_count[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.691      ;
+; 0.513 ; midi_receiver:midi|shift_8:buffer|buffer[3] ; midi_receiver:midi|dout[3]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.756      ;
+; 0.554 ; midi_receiver:midi|shift_8:buffer|buffer[3] ; midi_receiver:midi|shift_8:buffer|buffer[2] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.797      ;
+; 0.579 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[3]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.823      ;
+; 0.579 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[1]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.823      ;
+; 0.579 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[0]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.823      ;
+; 0.583 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[2]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.827      ;
+; 0.586 ; midi_receiver:midi|shift_8:buffer|buffer[0] ; midi_receiver:midi|dout[0]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.829      ;
+; 0.586 ; midi_receiver:midi|cycle_count[9]           ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.829      ;
+; 0.587 ; midi_receiver:midi|shift_8:buffer|buffer[6] ; midi_receiver:midi|dout[6]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.830      ;
+; 0.587 ; midi_receiver:midi|cycle_count[1]           ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.830      ;
+; 0.587 ; midi_receiver:midi|cycle_count[3]           ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.830      ;
+; 0.588 ; midi_receiver:midi|shift_8:buffer|buffer[4] ; midi_receiver:midi|dout[4]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.831      ;
+; 0.589 ; midi_receiver:midi|cycle_count[4]           ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.832      ;
+; 0.590 ; midi_receiver:midi|cycle_count[7]           ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.833      ;
+; 0.591 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[6]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.835      ;
+; 0.592 ; midi_receiver:midi|cycle_count[2]           ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.835      ;
+; 0.592 ; midi_receiver:midi|cycle_count[6]           ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.835      ;
+; 0.593 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.837      ;
+; 0.593 ; midi_receiver:midi|shift_8:buffer|buffer[2] ; midi_receiver:midi|dout[2]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.836      ;
+; 0.593 ; midi_receiver:midi|shift_8:buffer|buffer[5] ; midi_receiver:midi|dout[5]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.836      ;
+; 0.595 ; midi_receiver:midi|shift_8:buffer|buffer[1] ; midi_receiver:midi|dout[1]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.838      ;
+; 0.595 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[5]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.839      ;
+; 0.595 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[4]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.839      ;
+; 0.598 ; midi_receiver:midi|cycle_count[5]           ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.841      ;
+; 0.599 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[3]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.843      ;
+; 0.599 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.843      ;
+; 0.600 ; midi_receiver:midi|cycle_count[8]           ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.843      ;
+; 0.602 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.846      ;
+; 0.609 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[6]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.853      ;
+; 0.612 ; midi_receiver:midi|cycle_count[0]           ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.855      ;
+; 0.614 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[5]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.858      ;
+; 0.616 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[4]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.860      ;
+; 0.624 ; midi_receiver:midi|state.DATA               ; midi_receiver:midi|bit_count[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.071      ; 0.866      ;
+; 0.671 ; midi_receiver:midi|state.IDLE               ; midi_receiver:midi|state.START              ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.071      ; 0.913      ;
+; 0.690 ; midi_receiver:midi|state.WAIT               ; midi_receiver:midi|bit_count[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 0.933      ;
+; 0.711 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[5]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.955      ;
+; 0.712 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[4]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.956      ;
+; 0.716 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[3]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.960      ;
+; 0.716 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[0]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.960      ;
+; 0.717 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[1]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.961      ;
+; 0.717 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[6]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.961      ;
+; 0.726 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[2]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 0.970      ;
+; 0.786 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[0]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.030      ;
+; 0.787 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[3]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.031      ;
+; 0.789 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[3]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.033      ;
+; 0.791 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[5]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.035      ;
+; 0.791 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.035      ;
+; 0.792 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[6]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.036      ;
+; 0.794 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[2]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.038      ;
+; 0.795 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[0]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.039      ;
+; 0.796 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[1]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.040      ;
+; 0.796 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[5]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.040      ;
+; 0.797 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[2]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.041      ;
+; 0.803 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[1]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.047      ;
+; 0.805 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[6]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.049      ;
+; 0.807 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.051      ;
+; 0.808 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|dout[5]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.070      ; 1.049      ;
+; 0.809 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.053      ;
+; 0.809 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[5]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.053      ;
+; 0.810 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|dout[2]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.070      ; 1.051      ;
+; 0.811 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[4]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.055      ;
+; 0.816 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[4]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.060      ;
+; 0.816 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|dout[1]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.070      ; 1.057      ;
+; 0.820 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[6]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.064      ;
+; 0.821 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[4]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.065      ;
+; 0.821 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|dout[0]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.070      ; 1.062      ;
+; 0.825 ; midi_receiver:midi|shift_8:buffer|buffer[7] ; midi_receiver:midi|shift_8:buffer|buffer[6] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.069      ; 1.065      ;
+; 0.829 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[6]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.073      ;
+; 0.830 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.074      ;
+; 0.831 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[5]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.075      ;
+; 0.831 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[3]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.075      ;
+; 0.832 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.076      ;
+; 0.834 ; midi_receiver:midi|state.WAIT               ; midi_receiver:midi|bit_count[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 1.077      ;
+; 0.849 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.093      ;
+; 0.851 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.095      ;
+; 0.852 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[5]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.096      ;
+; 0.852 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[4]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.096      ;
+; 0.852 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[4]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.096      ;
+; 0.853 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[3]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.097      ;
+; 0.853 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.097      ;
+; 0.854 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[3]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.098      ;
+; 0.854 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[6]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.098      ;
+; 0.855 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.073      ; 1.099      ;
+; 0.872 ; midi_receiver:midi|cycle_count[9]           ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 1.115      ;
+; 0.873 ; midi_receiver:midi|cycle_count[3]           ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 1.116      ;
+; 0.873 ; midi_receiver:midi|cycle_count[1]           ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 1.116      ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Recovery: 'SYSCLK'                                                                                                                    ;
++--------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                     ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 18.041 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[0] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.074     ; 1.904      ;
+; 18.041 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[1] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.074     ; 1.904      ;
+; 18.041 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[2] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.074     ; 1.904      ;
+; 18.041 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[3] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.074     ; 1.904      ;
+; 18.041 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[4] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.074     ; 1.904      ;
+; 18.041 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[5] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.074     ; 1.904      ;
+; 18.041 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[6] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.074     ; 1.904      ;
+; 18.523 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[7] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.071     ; 1.425      ;
++--------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Removal: 'SYSCLK'                                                                                                                    ;
++-------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                     ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 1.083 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[7] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.072      ; 1.326      ;
+; 1.577 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[0] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.070      ; 1.818      ;
+; 1.577 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[1] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.070      ; 1.818      ;
+; 1.577 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[2] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.070      ; 1.818      ;
+; 1.577 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[3] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.070      ; 1.818      ;
+; 1.577 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[4] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.070      ; 1.818      ;
+; 1.577 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[5] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.070      ; 1.818      ;
+; 1.577 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[6] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.070      ; 1.818      ;
++-------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
 ----------------------------------------------
@@ -211,37 +758,297 @@ No paths to report.
 No synchronizer chains to report.
 
 
---------------------------------------
++------------------------------------+
 ; Fast 1200mV 0C Model Setup Summary ;
---------------------------------------
-No paths to report.
++--------+--------+------------------+
+; Clock  ; Slack  ; End Point TNS    ;
++--------+--------+------------------+
+; SYSCLK ; 18.079 ; 0.000            ;
++--------+--------+------------------+
 
 
--------------------------------------
++-----------------------------------+
 ; Fast 1200mV 0C Model Hold Summary ;
--------------------------------------
-No paths to report.
++--------+-------+------------------+
+; Clock  ; Slack ; End Point TNS    ;
++--------+-------+------------------+
+; SYSCLK ; 0.181 ; 0.000            ;
++--------+-------+------------------+
 
 
------------------------------------------
++---------------------------------------+
 ; Fast 1200mV 0C Model Recovery Summary ;
------------------------------------------
-No paths to report.
++--------+--------+---------------------+
+; Clock  ; Slack  ; End Point TNS       ;
++--------+--------+---------------------+
+; SYSCLK ; 18.896 ; 0.000               ;
++--------+--------+---------------------+
 
 
-----------------------------------------
++--------------------------------------+
 ; Fast 1200mV 0C Model Removal Summary ;
-----------------------------------------
-No paths to report.
++--------+-------+---------------------+
+; Clock  ; Slack ; End Point TNS       ;
++--------+-------+---------------------+
+; SYSCLK ; 0.568 ; 0.000               ;
++--------+-------+---------------------+
 
 
 +--------------------------------------------------+
 ; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
-+--------+--------+--------------------------------+
-; Clock  ; Slack  ; End Point TNS                  ;
-+--------+--------+--------------------------------+
-; SYSCLK ; 16.000 ; 0.000                          ;
-+--------+--------+--------------------------------+
++--------+-------+---------------------------------+
+; Clock  ; Slack ; End Point TNS                   ;
++--------+-------+---------------------------------+
+; SYSCLK ; 9.437 ; 0.000                           ;
++--------+-------+---------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'SYSCLK'                                                                                                                           ;
++--------+-----------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                         ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 18.079 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.887      ;
+; 18.079 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.887      ;
+; 18.079 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.887      ;
+; 18.079 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.887      ;
+; 18.079 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.887      ;
+; 18.079 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.887      ;
+; 18.079 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.887      ;
+; 18.079 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.887      ;
+; 18.079 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.887      ;
+; 18.079 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.887      ;
+; 18.079 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.887      ;
+; 18.082 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.884      ;
+; 18.082 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.884      ;
+; 18.082 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.884      ;
+; 18.082 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.884      ;
+; 18.082 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.884      ;
+; 18.082 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.884      ;
+; 18.082 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.884      ;
+; 18.082 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.884      ;
+; 18.082 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.884      ;
+; 18.082 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.884      ;
+; 18.082 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.884      ;
+; 18.087 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.879      ;
+; 18.087 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.879      ;
+; 18.087 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.879      ;
+; 18.087 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.879      ;
+; 18.087 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.879      ;
+; 18.087 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.879      ;
+; 18.087 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.879      ;
+; 18.087 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.879      ;
+; 18.087 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.879      ;
+; 18.087 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.879      ;
+; 18.087 ; midi_receiver:midi|cycle_count[8] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.879      ;
+; 18.098 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.868      ;
+; 18.098 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.868      ;
+; 18.098 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.868      ;
+; 18.098 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.868      ;
+; 18.098 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.868      ;
+; 18.098 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.868      ;
+; 18.098 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.868      ;
+; 18.098 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.868      ;
+; 18.098 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.868      ;
+; 18.098 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.868      ;
+; 18.098 ; midi_receiver:midi|cycle_count[4] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.868      ;
+; 18.125 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.841      ;
+; 18.125 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.841      ;
+; 18.125 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.841      ;
+; 18.125 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.841      ;
+; 18.125 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.841      ;
+; 18.125 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.841      ;
+; 18.125 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.841      ;
+; 18.125 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.841      ;
+; 18.125 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.841      ;
+; 18.125 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.841      ;
+; 18.125 ; midi_receiver:midi|cycle_count[6] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.841      ;
+; 18.145 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|shift_8:buffer|buffer[0] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.819      ;
+; 18.145 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|shift_8:buffer|buffer[1] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.819      ;
+; 18.145 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|shift_8:buffer|buffer[2] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.819      ;
+; 18.145 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|shift_8:buffer|buffer[3] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.819      ;
+; 18.145 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|shift_8:buffer|buffer[4] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.819      ;
+; 18.145 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|shift_8:buffer|buffer[5] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.819      ;
+; 18.145 ; midi_receiver:midi|cycle_count[1] ; midi_receiver:midi|shift_8:buffer|buffer[6] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.819      ;
+; 18.145 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.821      ;
+; 18.145 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.821      ;
+; 18.145 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.821      ;
+; 18.145 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.821      ;
+; 18.145 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.821      ;
+; 18.145 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.821      ;
+; 18.145 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.821      ;
+; 18.145 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.821      ;
+; 18.145 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.821      ;
+; 18.145 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.821      ;
+; 18.145 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.821      ;
+; 18.148 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|shift_8:buffer|buffer[0] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.816      ;
+; 18.148 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|shift_8:buffer|buffer[1] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.816      ;
+; 18.148 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|shift_8:buffer|buffer[2] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.816      ;
+; 18.148 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|shift_8:buffer|buffer[3] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.816      ;
+; 18.148 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|shift_8:buffer|buffer[4] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.816      ;
+; 18.148 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|shift_8:buffer|buffer[5] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.816      ;
+; 18.148 ; midi_receiver:midi|cycle_count[2] ; midi_receiver:midi|shift_8:buffer|buffer[6] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.816      ;
+; 18.166 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.800      ;
+; 18.166 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.800      ;
+; 18.166 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.800      ;
+; 18.166 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.800      ;
+; 18.166 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.800      ;
+; 18.166 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.800      ;
+; 18.166 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.800      ;
+; 18.166 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.800      ;
+; 18.166 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.800      ;
+; 18.166 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.800      ;
+; 18.166 ; midi_receiver:midi|cycle_count[9] ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.800      ;
+; 18.211 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|shift_8:buffer|buffer[0] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.753      ;
+; 18.211 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|shift_8:buffer|buffer[1] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.753      ;
+; 18.211 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|shift_8:buffer|buffer[2] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.753      ;
+; 18.211 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|shift_8:buffer|buffer[3] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.753      ;
+; 18.211 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|shift_8:buffer|buffer[4] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.753      ;
+; 18.211 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|shift_8:buffer|buffer[5] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.753      ;
+; 18.211 ; midi_receiver:midi|cycle_count[0] ; midi_receiver:midi|shift_8:buffer|buffer[6] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.043     ; 1.753      ;
+; 18.217 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.749      ;
+; 18.217 ; midi_receiver:midi|cycle_count[3] ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 1.749      ;
++--------+-----------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'SYSCLK'                                                                                                                                     ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                   ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.181 ; midi_receiver:midi|state.WAIT               ; midi_receiver:midi|state.WAIT               ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.307      ;
+; 0.181 ; midi_receiver:midi|bit_count[2]             ; midi_receiver:midi|bit_count[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.307      ;
+; 0.181 ; midi_receiver:midi|bit_count[1]             ; midi_receiver:midi|bit_count[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.307      ;
+; 0.181 ; midi_receiver:midi|bit_count[0]             ; midi_receiver:midi|bit_count[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.307      ;
+; 0.182 ; midi_receiver:midi|state.DATA               ; midi_receiver:midi|state.DATA               ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.041      ; 0.307      ;
+; 0.193 ; midi_receiver:midi|shift_8:buffer|buffer[2] ; midi_receiver:midi|shift_8:buffer|buffer[1] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.319      ;
+; 0.193 ; midi_receiver:midi|shift_8:buffer|buffer[5] ; midi_receiver:midi|shift_8:buffer|buffer[4] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.319      ;
+; 0.194 ; midi_receiver:midi|shift_8:buffer|buffer[1] ; midi_receiver:midi|shift_8:buffer|buffer[0] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.320      ;
+; 0.194 ; midi_receiver:midi|shift_8:buffer|buffer[6] ; midi_receiver:midi|shift_8:buffer|buffer[5] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.320      ;
+; 0.195 ; midi_receiver:midi|shift_8:buffer|buffer[4] ; midi_receiver:midi|shift_8:buffer|buffer[3] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.321      ;
+; 0.197 ; midi_receiver:midi|cycle_count[10]          ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.041      ; 0.322      ;
+; 0.214 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|bit_count[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.340      ;
+; 0.215 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|state.WAIT               ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.341      ;
+; 0.221 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|bit_count[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.347      ;
+; 0.251 ; midi_receiver:midi|shift_8:buffer|buffer[3] ; midi_receiver:midi|dout[3]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.377      ;
+; 0.264 ; midi_receiver:midi|shift_8:buffer|buffer[3] ; midi_receiver:midi|shift_8:buffer|buffer[2] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.390      ;
+; 0.278 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[6]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.404      ;
+; 0.278 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[3]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.404      ;
+; 0.278 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[0]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.404      ;
+; 0.279 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[1]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.405      ;
+; 0.282 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[5]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.408      ;
+; 0.282 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[4]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.408      ;
+; 0.285 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[6]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.411      ;
+; 0.285 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.411      ;
+; 0.286 ; midi_receiver:midi|dout[4]                  ; led_dec:led_high|segments_out[2]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.412      ;
+; 0.289 ; midi_receiver:midi|shift_8:buffer|buffer[0] ; midi_receiver:midi|dout[0]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.415      ;
+; 0.290 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[5]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.416      ;
+; 0.291 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[3]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.417      ;
+; 0.291 ; midi_receiver:midi|shift_8:buffer|buffer[6] ; midi_receiver:midi|dout[6]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.417      ;
+; 0.292 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[4]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.418      ;
+; 0.292 ; midi_receiver:midi|shift_8:buffer|buffer[4] ; midi_receiver:midi|dout[4]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.418      ;
+; 0.293 ; midi_receiver:midi|cycle_count[3]           ; midi_receiver:midi|cycle_count[3]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.041      ; 0.418      ;
+; 0.293 ; midi_receiver:midi|cycle_count[9]           ; midi_receiver:midi|cycle_count[9]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.041      ; 0.418      ;
+; 0.294 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.420      ;
+; 0.294 ; midi_receiver:midi|shift_8:buffer|buffer[2] ; midi_receiver:midi|dout[2]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.420      ;
+; 0.294 ; midi_receiver:midi|shift_8:buffer|buffer[5] ; midi_receiver:midi|dout[5]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.420      ;
+; 0.294 ; midi_receiver:midi|cycle_count[7]           ; midi_receiver:midi|cycle_count[7]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.041      ; 0.419      ;
+; 0.294 ; midi_receiver:midi|cycle_count[1]           ; midi_receiver:midi|cycle_count[1]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.041      ; 0.419      ;
+; 0.294 ; midi_receiver:midi|state.DATA               ; midi_receiver:midi|bit_count[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.041      ; 0.419      ;
+; 0.295 ; midi_receiver:midi|dout[0]                  ; led_dec:led_low|segments_out[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.421      ;
+; 0.295 ; midi_receiver:midi|shift_8:buffer|buffer[1] ; midi_receiver:midi|dout[1]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.421      ;
+; 0.295 ; midi_receiver:midi|cycle_count[4]           ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.041      ; 0.420      ;
+; 0.295 ; midi_receiver:midi|cycle_count[6]           ; midi_receiver:midi|cycle_count[6]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.041      ; 0.420      ;
+; 0.296 ; midi_receiver:midi|cycle_count[2]           ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.041      ; 0.421      ;
+; 0.299 ; midi_receiver:midi|cycle_count[5]           ; midi_receiver:midi|cycle_count[5]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.041      ; 0.424      ;
+; 0.301 ; midi_receiver:midi|cycle_count[8]           ; midi_receiver:midi|cycle_count[8]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.041      ; 0.426      ;
+; 0.307 ; midi_receiver:midi|cycle_count[0]           ; midi_receiver:midi|cycle_count[0]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.041      ; 0.432      ;
+; 0.337 ; midi_receiver:midi|state.IDLE               ; midi_receiver:midi|state.START              ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.041      ; 0.462      ;
+; 0.347 ; midi_receiver:midi|state.WAIT               ; midi_receiver:midi|bit_count[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.473      ;
+; 0.353 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[4]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.479      ;
+; 0.353 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[5]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.479      ;
+; 0.353 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[2]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.479      ;
+; 0.358 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[0]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.484      ;
+; 0.359 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[1]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.485      ;
+; 0.359 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[3]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.485      ;
+; 0.359 ; midi_receiver:midi|dout[5]                  ; led_dec:led_high|segments_out[6]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.485      ;
+; 0.386 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[0]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.512      ;
+; 0.387 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[3]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.513      ;
+; 0.388 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[3]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.514      ;
+; 0.389 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[0]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.515      ;
+; 0.389 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.515      ;
+; 0.390 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[1]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.516      ;
+; 0.390 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[5]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.516      ;
+; 0.391 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[6]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.517      ;
+; 0.391 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[2]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.517      ;
+; 0.392 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[6]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.518      ;
+; 0.392 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[5]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.518      ;
+; 0.393 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[1]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.519      ;
+; 0.393 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.519      ;
+; 0.393 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[2]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.519      ;
+; 0.395 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[5]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.521      ;
+; 0.396 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[6]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.522      ;
+; 0.397 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.523      ;
+; 0.397 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.523      ;
+; 0.397 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[5]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.523      ;
+; 0.398 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[3]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.524      ;
+; 0.398 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.524      ;
+; 0.399 ; midi_receiver:midi|dout[2]                  ; led_dec:led_low|segments_out[4]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.525      ;
+; 0.400 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[6]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.526      ;
+; 0.400 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[4]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.526      ;
+; 0.402 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|dout[5]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.040      ; 0.526      ;
+; 0.404 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|dout[2]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.040      ; 0.528      ;
+; 0.406 ; midi_receiver:midi|shift_8:buffer|buffer[7] ; midi_receiver:midi|shift_8:buffer|buffer[6] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.039      ; 0.529      ;
+; 0.406 ; midi_receiver:midi|state.WAIT               ; midi_receiver:midi|bit_count[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.532      ;
+; 0.407 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.533      ;
+; 0.408 ; midi_receiver:midi|dout[1]                  ; led_dec:led_low|segments_out[4]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.534      ;
+; 0.409 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|dout[1]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.040      ; 0.533      ;
+; 0.412 ; midi_receiver:midi|dout[6]                  ; led_dec:led_high|segments_out[4]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.538      ;
+; 0.413 ; midi_receiver:midi|state.STOP               ; midi_receiver:midi|dout[0]                  ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.040      ; 0.537      ;
+; 0.413 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[0]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.539      ;
+; 0.413 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[3]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.539      ;
+; 0.413 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[2]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.539      ;
+; 0.413 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[5]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.539      ;
+; 0.413 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[4]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.539      ;
+; 0.415 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[6]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.541      ;
+; 0.417 ; midi_receiver:midi|dout[3]                  ; led_dec:led_low|segments_out[1]             ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.543      ;
+; 0.418 ; midi_receiver:midi|dout[7]                  ; led_dec:led_high|segments_out[3]            ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.544      ;
+; 0.442 ; midi_receiver:midi|cycle_count[9]           ; midi_receiver:midi|cycle_count[10]          ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.041      ; 0.567      ;
+; 0.442 ; midi_receiver:midi|cycle_count[3]           ; midi_receiver:midi|cycle_count[4]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.041      ; 0.567      ;
+; 0.443 ; midi_receiver:midi|cycle_count[1]           ; midi_receiver:midi|cycle_count[2]           ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.041      ; 0.568      ;
++-------+---------------------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Recovery: 'SYSCLK'                                                                                                                    ;
++--------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                     ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 18.896 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[0] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.044     ; 1.067      ;
+; 18.896 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[1] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.044     ; 1.067      ;
+; 18.896 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[2] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.044     ; 1.067      ;
+; 18.896 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[3] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.044     ; 1.067      ;
+; 18.896 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[4] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.044     ; 1.067      ;
+; 18.896 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[5] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.044     ; 1.067      ;
+; 18.896 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[6] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.044     ; 1.067      ;
+; 19.185 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[7] ; SYSCLK       ; SYSCLK      ; 20.000       ; -0.041     ; 0.781      ;
++--------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Removal: 'SYSCLK'                                                                                                                    ;
++-------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                     ; To Node                                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.568 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[7] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.042      ; 0.694      ;
+; 0.819 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[0] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.040      ; 0.943      ;
+; 0.819 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[1] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.040      ; 0.943      ;
+; 0.819 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[2] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.040      ; 0.943      ;
+; 0.819 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[3] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.040      ; 0.943      ;
+; 0.819 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[4] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.040      ; 0.943      ;
+; 0.819 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[5] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.040      ; 0.943      ;
+; 0.819 ; midi_receiver:midi|state.WAIT ; midi_receiver:midi|shift_8:buffer|buffer[6] ; SYSCLK       ; SYSCLK      ; 0.000        ; 0.040      ; 0.943      ;
++-------+-------------------------------+---------------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
 ----------------------------------------------
@@ -250,16 +1057,16 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+----------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                        ;
-+------------------+-------+------+----------+---------+---------------------+
-; Clock            ; Setup ; Hold ; Recovery ; Removal ; Minimum Pulse Width ;
-+------------------+-------+------+----------+---------+---------------------+
-; Worst-case Slack ; N/A   ; N/A  ; N/A      ; N/A     ; 16.000              ;
-;  SYSCLK          ; N/A   ; N/A  ; N/A      ; N/A     ; 16.000              ;
-; Design-wide TNS  ; 0.0   ; 0.0  ; 0.0      ; 0.0     ; 0.0                 ;
-;  SYSCLK          ; N/A   ; N/A  ; N/A      ; N/A     ; 0.000               ;
-+------------------+-------+------+----------+---------+---------------------+
++------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                          ;
++------------------+--------+-------+----------+---------+---------------------+
+; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+--------+-------+----------+---------+---------------------+
+; Worst-case Slack ; 15.995 ; 0.181 ; 17.831   ; 0.568   ; 9.437               ;
+;  SYSCLK          ; 15.995 ; 0.181 ; 17.831   ; 0.568   ; 9.437               ;
+; Design-wide TNS  ; 0.0    ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
+;  SYSCLK          ; 0.000  ; 0.000 ; 0.000    ; 0.000   ; 0.000               ;
++------------------+--------+-------+----------+---------+---------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -281,6 +1088,8 @@ No synchronizer chains to report.
 ; segments_out_low[4]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; segments_out_low[5]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; segments_out_low[6]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; led_high_bit         ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; led_din              ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; ~ALTERA_DCLK~        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; ~ALTERA_nCEO~        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 +----------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
@@ -292,8 +1101,8 @@ No synchronizer chains to report.
 ; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
 +-------------------------+--------------+-----------------+-----------------+
 ; din                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; reset                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; clk                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; reset                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
@@ -319,6 +1128,8 @@ No synchronizer chains to report.
 ; segments_out_low[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.38 V              ; -0.0144 V           ; 0.227 V                              ; 0.024 V                              ; 3.14e-10 s                  ; 3.39e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.38 V             ; -0.0144 V          ; 0.227 V                             ; 0.024 V                             ; 3.14e-10 s                 ; 3.39e-10 s                 ; Yes                       ; Yes                       ;
 ; segments_out_low[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.33 V              ; -0.00496 V          ; 0.223 V                              ; 0.086 V                              ; 2.9e-09 s                   ; 2.73e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.33 V             ; -0.00496 V         ; 0.223 V                             ; 0.086 V                             ; 2.9e-09 s                  ; 2.73e-09 s                 ; Yes                       ; Yes                       ;
 ; segments_out_low[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.38 V              ; -0.0144 V           ; 0.227 V                              ; 0.024 V                              ; 3.14e-10 s                  ; 3.39e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.38 V             ; -0.0144 V          ; 0.227 V                             ; 0.024 V                             ; 3.14e-10 s                 ; 3.39e-10 s                 ; Yes                       ; Yes                       ;
+; led_high_bit         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; led_din              ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
 ; ~ALTERA_DCLK~        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.67e-09 V                   ; 2.38 V              ; -0.0485 V           ; 0.167 V                              ; 0.096 V                              ; 2.95e-10 s                  ; 2.73e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.67e-09 V                  ; 2.38 V             ; -0.0485 V          ; 0.167 V                             ; 0.096 V                             ; 2.95e-10 s                 ; 2.73e-10 s                 ; Yes                       ; Yes                       ;
 ; ~ALTERA_nCEO~        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.18e-09 V                   ; 2.38 V              ; -0.00483 V          ; 0.152 V                              ; 0.012 V                              ; 4.81e-10 s                  ; 6.29e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.18e-09 V                  ; 2.38 V             ; -0.00483 V         ; 0.152 V                             ; 0.012 V                             ; 4.81e-10 s                 ; 6.29e-10 s                 ; Yes                       ; Yes                       ;
 +----------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
@@ -343,6 +1154,8 @@ No synchronizer chains to report.
 ; segments_out_low[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.36 V              ; -0.00552 V          ; 0.11 V                               ; 0.007 V                              ; 4.54e-10 s                  ; 4.35e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.36 V             ; -0.00552 V         ; 0.11 V                              ; 0.007 V                             ; 4.54e-10 s                 ; 4.35e-10 s                 ; Yes                       ; Yes                       ;
 ; segments_out_low[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.33 V              ; -0.00269 V          ; 0.13 V                               ; 0.055 V                              ; 3.54e-09 s                  ; 3.29e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.33 V             ; -0.00269 V         ; 0.13 V                              ; 0.055 V                             ; 3.54e-09 s                 ; 3.29e-09 s                 ; Yes                       ; Yes                       ;
 ; segments_out_low[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.36 V              ; -0.00552 V          ; 0.11 V                               ; 0.007 V                              ; 4.54e-10 s                  ; 4.35e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.36 V             ; -0.00552 V         ; 0.11 V                              ; 0.007 V                             ; 4.54e-10 s                 ; 4.35e-10 s                 ; Yes                       ; Yes                       ;
+; led_high_bit         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; led_din              ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
 ; ~ALTERA_DCLK~        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.75e-07 V                   ; 2.35 V              ; -0.0109 V           ; 0.084 V                              ; 0.027 V                              ; 4.31e-10 s                  ; 3.61e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.75e-07 V                  ; 2.35 V             ; -0.0109 V          ; 0.084 V                             ; 0.027 V                             ; 4.31e-10 s                 ; 3.61e-10 s                 ; Yes                       ; Yes                       ;
 ; ~ALTERA_nCEO~        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.15e-07 V                   ; 2.35 V              ; -0.00712 V          ; 0.093 V                              ; 0.02 V                               ; 6.21e-10 s                  ; 7.9e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 6.15e-07 V                  ; 2.35 V             ; -0.00712 V         ; 0.093 V                             ; 0.02 V                              ; 6.21e-10 s                 ; 7.9e-10 s                  ; Yes                       ; Yes                       ;
 +----------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
@@ -367,15 +1180,51 @@ No synchronizer chains to report.
 ; segments_out_low[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.73 V              ; -0.0384 V           ; 0.169 V                              ; 0.089 V                              ; 2.7e-10 s                   ; 2.62e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.73 V             ; -0.0384 V          ; 0.169 V                             ; 0.089 V                             ; 2.7e-10 s                  ; 2.62e-10 s                 ; Yes                       ; Yes                       ;
 ; segments_out_low[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.64 V              ; -0.0117 V           ; 0.202 V                              ; 0.176 V                              ; 2.38e-09 s                  ; 2.22e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.64 V             ; -0.0117 V          ; 0.202 V                             ; 0.176 V                             ; 2.38e-09 s                 ; 2.22e-09 s                 ; No                        ; Yes                       ;
 ; segments_out_low[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.73 V              ; -0.0384 V           ; 0.169 V                              ; 0.089 V                              ; 2.7e-10 s                   ; 2.62e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.73 V             ; -0.0384 V          ; 0.169 V                             ; 0.089 V                             ; 2.7e-10 s                  ; 2.62e-10 s                 ; Yes                       ; Yes                       ;
+; led_high_bit         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; led_din              ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
 ; ~ALTERA_DCLK~        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.74 V              ; -0.06 V             ; 0.158 V                              ; 0.08 V                               ; 2.68e-10 s                  ; 2.19e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.74 V             ; -0.06 V            ; 0.158 V                             ; 0.08 V                              ; 2.68e-10 s                 ; 2.19e-10 s                 ; Yes                       ; Yes                       ;
 ; ~ALTERA_nCEO~        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.54e-08 V                   ; 2.7 V               ; -0.00943 V          ; 0.276 V                              ; 0.035 V                              ; 3.19e-10 s                  ; 4.99e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.54e-08 V                  ; 2.7 V              ; -0.00943 V         ; 0.276 V                             ; 0.035 V                             ; 3.19e-10 s                 ; 4.99e-10 s                 ; No                        ; Yes                       ;
 +----------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
 
--------------------
-; Clock Transfers ;
--------------------
-Nothing to report.
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; SYSCLK     ; SYSCLK   ; 692      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; SYSCLK     ; SYSCLK   ; 692      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Recovery Transfers                                                ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; SYSCLK     ; SYSCLK   ; 8        ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Removal Transfers                                                 ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; SYSCLK     ; SYSCLK   ; 8        ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
 ---------------
@@ -397,10 +1246,10 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 0     ; 0    ;
-; Unconstrained Input Port Paths  ; 0     ; 0    ;
-; Unconstrained Output Ports      ; 0     ; 0    ;
-; Unconstrained Output Port Paths ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 46    ; 46   ;
+; Unconstrained Output Ports      ; 15    ; 15   ;
+; Unconstrained Output Port Paths ; 15    ; 15   ;
 +---------------------------------+-------+------+
 
 
@@ -413,13 +1262,79 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +--------+--------+------+-------------+
 
 
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; din        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                                   ;
++----------------------+---------------------------------------------------------------------------------------+
+; Output Port          ; Comment                                                                               ;
++----------------------+---------------------------------------------------------------------------------------+
+; led_din              ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_high[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_high[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_high[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_high[3] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_high[4] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_high[5] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_high[6] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_low[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_low[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_low[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_low[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_low[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_low[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_low[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++----------------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; din        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                                   ;
++----------------------+---------------------------------------------------------------------------------------+
+; Output Port          ; Comment                                                                               ;
++----------------------+---------------------------------------------------------------------------------------+
+; led_din              ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_high[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_high[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_high[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_high[3] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_high[4] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_high[5] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_high[6] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_low[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_low[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_low[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_low[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_low[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_low[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segments_out_low[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++----------------------+---------------------------------------------------------------------------------------+
+
+
 +--------------------------+
 ; Timing Analyzer Messages ;
 +--------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Wed May 10 17:00:43 2023
+    Info: Processing started: Mon May 15 16:52:42 2023
 Info: Command: quartus_sta midi_module -c midi_module
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -427,43 +1342,83 @@ Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Info (332104): Reading SDC File: 'SDC1.sdc'
+Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning (332169): From SYSCLK (Rise) to SYSCLK (Rise) (setup and hold)
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
-Info (332140): No fmax paths to report
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
-Info (332140): No Recovery paths to report
-Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is 16.000
+Info (332146): Worst-case setup slack is 15.995
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    16.000               0.000 SYSCLK 
+    Info (332119):    15.995               0.000 SYSCLK 
+Info (332146): Worst-case hold slack is 0.402
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.402               0.000 SYSCLK 
+Info (332146): Worst-case recovery slack is 17.831
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    17.831               0.000 SYSCLK 
+Info (332146): Worst-case removal slack is 1.186
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.186               0.000 SYSCLK 
+Info (332146): Worst-case minimum pulse width slack is 9.756
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     9.756               0.000 SYSCLK 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (332140): No fmax paths to report
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
-Info (332140): No Recovery paths to report
-Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is 16.000
+Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning (332169): From SYSCLK (Rise) to SYSCLK (Rise) (setup and hold)
+Info (332146): Worst-case setup slack is 16.370
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    16.000               0.000 SYSCLK 
+    Info (332119):    16.370               0.000 SYSCLK 
+Info (332146): Worst-case hold slack is 0.354
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.354               0.000 SYSCLK 
+Info (332146): Worst-case recovery slack is 18.041
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    18.041               0.000 SYSCLK 
+Info (332146): Worst-case removal slack is 1.083
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.083               0.000 SYSCLK 
+Info (332146): Worst-case minimum pulse width slack is 9.776
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     9.776               0.000 SYSCLK 
 Info: Analyzing Fast 1200mV 0C Model
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
-Info (332140): No Recovery paths to report
-Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is 16.000
+Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning (332169): From SYSCLK (Rise) to SYSCLK (Rise) (setup and hold)
+Info (332146): Worst-case setup slack is 18.079
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    16.000               0.000 SYSCLK 
-Info (332101): Design is fully constrained for setup requirements
-Info (332101): Design is fully constrained for hold requirements
-Info: Quartus Prime Timing Analyzer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4881 megabytes
-    Info: Processing ended: Wed May 10 17:00:45 2023
+    Info (332119):    18.079               0.000 SYSCLK 
+Info (332146): Worst-case hold slack is 0.181
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.181               0.000 SYSCLK 
+Info (332146): Worst-case recovery slack is 18.896
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    18.896               0.000 SYSCLK 
+Info (332146): Worst-case removal slack is 0.568
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.568               0.000 SYSCLK 
+Info (332146): Worst-case minimum pulse width slack is 9.437
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     9.437               0.000 SYSCLK 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 4884 megabytes
+    Info: Processing ended: Mon May 15 16:52:44 2023
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

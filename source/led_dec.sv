@@ -6,7 +6,7 @@ module led_dec(
     input  logic 		reset
 );
 
-logic segments_out_c;
+logic [6:0] segments_out_c;
 
 always_ff @(posedge clk or posedge reset) begin
     if (reset == 1'b1) begin

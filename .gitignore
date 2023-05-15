@@ -10,3 +10,4 @@ sim/work/*
 **.prj
 **/rev*
 **tcl
+**.flock

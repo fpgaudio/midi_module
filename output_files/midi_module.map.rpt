@@ -1,5 +1,5 @@
 Analysis & Synthesis report for midi_module
-Wed May 10 17:00:30 2023
+Mon May 15 16:52:29 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -15,15 +15,12 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |midi_top|midi_receiver:midi|state
   9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: midi_receiver:midi
- 14. Port Connectivity Checks: "led_dec:led_low"
- 15. Port Connectivity Checks: "led_dec:led_high"
- 16. Post-Synthesis Netlist Statistics for Top Partition
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: midi_receiver:midi
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -49,16 +46,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed May 10 17:00:30 2023       ;
+; Analysis & Synthesis Status        ; Successful - Mon May 15 16:52:29 2023       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; midi_module                                 ;
 ; Top-level Entity Name              ; midi_top                                    ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 0                                           ;
-;     Total combinational functions  ; 0                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 17                                          ;
+; Total logic elements               ; 67                                          ;
+;     Total combinational functions  ; 59                                          ;
+;     Dedicated logic registers      ; 50                                          ;
+; Total registers                    ; 50                                          ;
+; Total pins                         ; 19                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -165,10 +162,11 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -184,44 +182,49 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                               ;
-+---------------------------------------------+-----------------------------+
-; Resource                                    ; Usage                       ;
-+---------------------------------------------+-----------------------------+
-;                                             ;                             ;
-; Total combinational functions               ; 0                           ;
-; Logic element usage by number of LUT inputs ;                             ;
-;     -- 4 input functions                    ; 0                           ;
-;     -- 3 input functions                    ; 0                           ;
-;     -- <=2 input functions                  ; 0                           ;
-;                                             ;                             ;
-; Logic elements by mode                      ;                             ;
-;     -- normal mode                          ; 0                           ;
-;     -- arithmetic mode                      ; 0                           ;
-;                                             ;                             ;
-; Total registers                             ; 0                           ;
-;     -- Dedicated logic registers            ; 0                           ;
-;     -- I/O registers                        ; 0                           ;
-;                                             ;                             ;
-; I/O pins                                    ; 17                          ;
-;                                             ;                             ;
-; Embedded Multiplier 9-bit elements          ; 0                           ;
-;                                             ;                             ;
-; Maximum fan-out node                        ; segments_out_high[0]~output ;
-; Maximum fan-out                             ; 1                           ;
-; Total fan-out                               ; 17                          ;
-; Average fan-out                             ; 0.50                        ;
-+---------------------------------------------+-----------------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 67        ;
+;                                             ;           ;
+; Total combinational functions               ; 59        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 28        ;
+;     -- 3 input functions                    ; 19        ;
+;     -- <=2 input functions                  ; 12        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 49        ;
+;     -- arithmetic mode                      ; 10        ;
+;                                             ;           ;
+; Total registers                             ; 50        ;
+;     -- Dedicated logic registers            ; 50        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 19        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 50        ;
+; Total fan-out                               ; 387       ;
+; Average fan-out                             ; 2.63      ;
++---------------------------------------------+-----------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |midi_top                  ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |midi_top           ; midi_top    ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+---------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                         ; Entity Name   ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+---------------+--------------+
+; |midi_top                  ; 59 (0)              ; 50 (0)                    ; 0           ; 0            ; 0       ; 0         ; 19   ; 0            ; |midi_top                                   ; midi_top      ; work         ;
+;    |led_dec:led_high|      ; 7 (7)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |midi_top|led_dec:led_high                  ; led_dec       ; work         ;
+;    |led_dec:led_low|       ; 7 (7)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |midi_top|led_dec:led_low                   ; led_dec       ; work         ;
+;    |midi_receiver:midi|    ; 45 (45)             ; 36 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |midi_top|midi_receiver:midi                ; midi_receiver ; work         ;
+;       |shift_8:buffer|     ; 0 (0)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |midi_top|midi_receiver:midi|shift_8:buffer ; shift_8       ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -239,53 +242,15 @@ Encoding Type:  One-Hot
 +-------------+------------+------------+-------------+------------+------------+
 
 
-+---------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                    ;
-+------------------------------------------------+--------------------------------------+
-; Register name                                  ; Reason for Removal                   ;
-+------------------------------------------------+--------------------------------------+
-; led_dec:led_low|segments_out[0..6]             ; Stuck at GND due to stuck port clock ;
-; midi_receiver:midi|dout[0..3]                  ; Lost fanout                          ;
-; midi_receiver:midi|shift_8:buffer|buffer[0..3] ; Lost fanout                          ;
-; led_dec:led_high|segments_out[0..6]            ; Stuck at GND due to stuck port clock ;
-; midi_receiver:midi|dout[4..7]                  ; Lost fanout                          ;
-; midi_receiver:midi|shift_8:buffer|buffer[4..7] ; Lost fanout                          ;
-; midi_receiver:midi|valid                       ; Lost fanout                          ;
-; midi_receiver:midi|state~2                     ; Lost fanout                          ;
-; midi_receiver:midi|state~3                     ; Lost fanout                          ;
-; midi_receiver:midi|cycle_count[0..10]          ; Lost fanout                          ;
-; midi_receiver:midi|bit_count[0..2]             ; Lost fanout                          ;
-; midi_receiver:midi|state.WAIT                  ; Lost fanout                          ;
-; midi_receiver:midi|state.IDLE                  ; Lost fanout                          ;
-; midi_receiver:midi|state.START                 ; Lost fanout                          ;
-; midi_receiver:midi|state.DATA                  ; Lost fanout                          ;
-; midi_receiver:midi|state.STOP                  ; Lost fanout                          ;
-; Total Number of Removed Registers = 52         ;                                      ;
-+------------------------------------------------+--------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                      ;
-+----------------------------------+-------------------------+-------------------------------------------------------------------------------------+
-; Register name                    ; Reason for Removal      ; Registers Removed due to This Register                                              ;
-+----------------------------------+-------------------------+-------------------------------------------------------------------------------------+
-; led_dec:led_low|segments_out[3]  ; Stuck at GND            ; midi_receiver:midi|dout[3], midi_receiver:midi|dout[2], midi_receiver:midi|dout[1], ;
-;                                  ; due to stuck port clock ; midi_receiver:midi|dout[0], midi_receiver:midi|shift_8:buffer|buffer[0],            ;
-;                                  ;                         ; midi_receiver:midi|shift_8:buffer|buffer[1],                                        ;
-;                                  ;                         ; midi_receiver:midi|shift_8:buffer|buffer[2],                                        ;
-;                                  ;                         ; midi_receiver:midi|shift_8:buffer|buffer[3],                                        ;
-;                                  ;                         ; midi_receiver:midi|shift_8:buffer|buffer[4], midi_receiver:midi|cycle_count[10],    ;
-;                                  ;                         ; midi_receiver:midi|cycle_count[9], midi_receiver:midi|state.IDLE,                   ;
-;                                  ;                         ; midi_receiver:midi|state.STOP                                                       ;
-; led_dec:led_high|segments_out[3] ; Stuck at GND            ; midi_receiver:midi|dout[7], midi_receiver:midi|dout[6], midi_receiver:midi|dout[5], ;
-;                                  ; due to stuck port clock ; midi_receiver:midi|dout[4], midi_receiver:midi|shift_8:buffer|buffer[5],            ;
-;                                  ;                         ; midi_receiver:midi|shift_8:buffer|buffer[6],                                        ;
-;                                  ;                         ; midi_receiver:midi|shift_8:buffer|buffer[7]                                         ;
-; midi_receiver:midi|state~2       ; Lost Fanouts            ; midi_receiver:midi|bit_count[2], midi_receiver:midi|bit_count[1],                   ;
-;                                  ;                         ; midi_receiver:midi|bit_count[0], midi_receiver:midi|state.WAIT,                     ;
-;                                  ;                         ; midi_receiver:midi|state.START                                                      ;
-; midi_receiver:midi|state~3       ; Lost Fanouts            ; midi_receiver:midi|state.DATA                                                       ;
-+----------------------------------+-------------------------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; midi_receiver:midi|state~2            ; Lost fanout        ;
+; midi_receiver:midi|state~3            ; Lost fanout        ;
+; Total Number of Removed Registers = 2 ;                    ;
++---------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -293,24 +258,25 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 50    ;
+; Number of registers using Synchronous Clear  ; 17    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 22    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 22    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
-; 7:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |midi_top|midi_receiver:midi|cycle_count[10] ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |midi_top|midi_receiver:midi|bit_count_c     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |midi_top|midi_receiver:midi|dout[6]        ;
+; 7:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |midi_top|midi_receiver:midi|cycle_count[0] ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |midi_top|midi_receiver:midi|bit_count_c    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 
 
 +-----------------------------------------------------------------+
@@ -323,36 +289,28 @@ Encoding Type:  One-Hot
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "led_dec:led_low"                                                                                                                            ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                      ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; clk  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "led_dec:led_high"                                                                                                                           ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                      ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; clk  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 17                          ;
-; cycloneiii_lcell_comb ; 1                           ;
-;     normal            ; 1                           ;
+; boundary_port         ; 19                          ;
+; cycloneiii_ff         ; 50                          ;
+;     ENA CLR           ; 22                          ;
+;     SCLR              ; 17                          ;
+;     plain             ; 11                          ;
+; cycloneiii_lcell_comb ; 60                          ;
+;     arith             ; 10                          ;
+;         2 data inputs ; 10                          ;
+;     normal            ; 50                          ;
 ;         0 data inputs ; 1                           ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 1                           ;
+;         3 data inputs ; 19                          ;
+;         4 data inputs ; 28                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 1.89                        ;
 +-----------------------+-----------------------------+
 
 
@@ -371,7 +329,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Wed May 10 17:00:21 2023
+    Info: Processing started: Mon May 15 16:52:20 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off midi_module -c midi_module
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -386,39 +344,23 @@ Info (12021): Found 1 design units, including 1 entities, in source file source/
 Info (12021): Found 1 design units, including 1 entities, in source file source/fifo.sv
     Info (12023): Found entity 1: fifo File: C:/cygwin64/home/gyaan/midi_module/source/fifo.sv Line: 2
 Info (12127): Elaborating entity "midi_top" for the top level hierarchy
-Info (12128): Elaborating entity "midi_receiver" for hierarchy "midi_receiver:midi" File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 23
-Info (12128): Elaborating entity "shift_8" for hierarchy "midi_receiver:midi|shift_8:buffer" File: C:/cygwin64/home/gyaan/midi_module/source/midi_receiver.sv Line: 53
-Info (12128): Elaborating entity "led_dec" for hierarchy "led_dec:led_high" File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 44
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (12128): Elaborating entity "midi_receiver" for hierarchy "midi_receiver:midi" File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 22
+Info (12128): Elaborating entity "shift_8" for hierarchy "midi_receiver:midi|shift_8:buffer" File: C:/cygwin64/home/gyaan/midi_module/source/midi_receiver.sv Line: 52
+Info (12128): Elaborating entity "led_dec" for hierarchy "led_dec:led_high" File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 30
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "segments_out_high[0]" is stuck at GND File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 8
-    Warning (13410): Pin "segments_out_high[1]" is stuck at GND File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 8
-    Warning (13410): Pin "segments_out_high[2]" is stuck at GND File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 8
-    Warning (13410): Pin "segments_out_high[3]" is stuck at GND File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 8
-    Warning (13410): Pin "segments_out_high[4]" is stuck at GND File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 8
-    Warning (13410): Pin "segments_out_high[5]" is stuck at GND File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 8
-    Warning (13410): Pin "segments_out_high[6]" is stuck at GND File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 8
-    Warning (13410): Pin "segments_out_low[0]" is stuck at GND File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 10
-    Warning (13410): Pin "segments_out_low[1]" is stuck at GND File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 10
-    Warning (13410): Pin "segments_out_low[2]" is stuck at GND File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 10
-    Warning (13410): Pin "segments_out_low[3]" is stuck at GND File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 10
-    Warning (13410): Pin "segments_out_low[4]" is stuck at GND File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 10
-    Warning (13410): Pin "segments_out_low[5]" is stuck at GND File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 10
-    Warning (13410): Pin "segments_out_low[6]" is stuck at GND File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 10
-Info (17049): 38 registers lost all their fanouts during netlist optimizations.
+    Warning (13410): Pin "led_high_bit" is stuck at VCC File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 7
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "din" File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 4
-    Warning (15610): No output dependent on input pin "reset" File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 3
-    Warning (15610): No output dependent on input pin "clk" File: C:/cygwin64/home/gyaan/midi_module/source/midi_top.sv Line: 2
-Info (21057): Implemented 17 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 86 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 14 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 21 warnings
-    Info: Peak virtual memory: 4735 megabytes
-    Info: Processing ended: Wed May 10 17:00:30 2023
+    Info (21059): Implemented 16 output pins
+    Info (21061): Implemented 67 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4803 megabytes
+    Info: Processing ended: Mon May 15 16:52:29 2023
     Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Total CPU time (on all processors): 00:00:20
 
 

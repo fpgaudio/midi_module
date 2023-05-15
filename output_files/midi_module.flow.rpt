@@ -1,5 +1,5 @@
 Flow report for midi_module
-Wed May 10 17:00:48 2023
+Mon May 15 16:52:48 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,18 +40,18 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Wed May 10 17:00:48 2023       ;
+; Flow Status                        ; Successful - Mon May 15 16:52:47 2023       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; midi_module                                 ;
 ; Top-level Entity Name              ; midi_top                                    ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 0 / 114,480 ( 0 % )                         ;
-;     Total combinational functions  ; 0 / 114,480 ( 0 % )                         ;
-;     Dedicated logic registers      ; 0 / 114,480 ( 0 % )                         ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 17 / 529 ( 3 % )                            ;
+; Total logic elements               ; 67 / 114,480 ( < 1 % )                      ;
+;     Total combinational functions  ; 59 / 114,480 ( < 1 % )                      ;
+;     Dedicated logic registers      ; 50 / 114,480 ( < 1 % )                      ;
+; Total registers                    ; 50                                          ;
+; Total pins                         ; 19 / 529 ( 4 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                       ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                             ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/10/2023 17:00:22 ;
+; Start date & time ; 05/15/2023 16:52:21 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; midi_module         ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                        ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +----------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                  ; 180886430800764.168375602110856        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                  ; 180886430800764.168418754111376        ; --            ; --          ; --                                ;
 ; EDA_BOARD_DESIGN_BOUNDARY_SCAN_TOOL    ; BSDL (Boundary Scan)                   ; <None>        ; --          ; --                                ;
 ; EDA_BOARD_DESIGN_SIGNAL_INTEGRITY_TOOL ; HSPICE (Signal Integrity)              ; <None>        ; --          ; --                                ;
 ; EDA_BOARD_DESIGN_SYMBOL_TOOL           ; FPGA Xchange (Symbol)                  ; <None>        ; --          ; --                                ;
@@ -106,11 +106,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 4720 MB             ; 00:00:21                           ;
-; Fitter               ; 00:00:08     ; 1.0                     ; 5961 MB             ; 00:00:14                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 4677 MB             ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4881 MB             ; 00:00:02                           ;
-; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4658 MB             ; 00:00:02                           ;
+; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 4803 MB             ; 00:00:20                           ;
+; Fitter               ; 00:00:08     ; 1.0                     ; 5993 MB             ; 00:00:15                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 4682 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4884 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4657 MB             ; 00:00:02                           ;
 ; Total                ; 00:00:24     ; --                      ; --                  ; 00:00:42                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
