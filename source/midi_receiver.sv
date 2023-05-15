@@ -6,7 +6,6 @@ module midi_receiver#(
     input  logic din,
     output logic [7:0] dout,
     output logic valid
-    // input  logic fifo_full
 );
 
 // MIDI receive state machine taking in a serial MIDI byte and outputting a parallel byte
