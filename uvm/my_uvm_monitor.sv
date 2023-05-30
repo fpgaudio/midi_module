@@ -43,7 +43,7 @@ class my_uvm_monitor_output extends uvm_monitor;
             @(negedge vif.clk)
             begin
                 if (vif.empty == 1'b0) begin
-                    $fwrite(out_file, "%1h", vif.dout);
+                    $fwrite(out_file, "%1h\n", vif.dout);
                     tx_out.data = vif.dout;
                     mon_ap_output.write(tx_out);
                     vif.rd_en = 1'b1;
