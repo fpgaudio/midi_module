@@ -38,11 +38,14 @@ always_comb begin
     key_byte_c = key_byte;
     vel_byte_c = vel_byte;
     midi_valid = 1'b0;
-    note_on_c = note_on
+    note_on_c = note_on;
+    state_c = state;
+    midi_key = key_byte;
+    midi_vel = vel_byte;
 
     case(state)
         init: begin
-            state_c = idle_state;
+            state_c = wait_for_status_in;
             status_byte_c = 0;
             key_byte_c = 0;
             vel_byte_c = 0;
@@ -88,6 +91,18 @@ always_comb begin
             status_byte_c = 0;
             key_byte_c = 0;
             vel_byte_c = 0;
+        end
+
+        default: begin
+            state_c = init;
+            status_byte_c = 0;
+            key_byte_c = 0;
+            vel_byte_c = 0;
+            note_on_c = 0;
+            midi_valid = 1'b0;
+            midi_key = 0;
+            midi_vel = 0;
+
         end
     endcase
 end
